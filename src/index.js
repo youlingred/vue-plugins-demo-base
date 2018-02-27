@@ -1,13 +1,9 @@
 /* 由'./build/bin/build-comps-index.js' 自动生成*/
 
-import HelloWorld from './components/helloWorld/index.js';
-import Test from './components/test/index.js';
-import Test2 from './components/test2/index.js';
+import HelloWorld from './components/hello-world/index.js';
 
 const components = [
   HelloWorld,
-  Test,
-  Test2,
 ];
 
 const install = function(Vue, opts = {}) {
@@ -27,9 +23,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 module.exports = {
   version: '1.0.0',
   install,
-  HelloWorld,
-  Test,
-  Test2
+  HelloWorld
 };
 
 module.exports.default = module.exports;

@@ -21,12 +21,7 @@
     "groups": [
       {
         "groupName": "Basic",
-        "list": [
-          {
-            "path": "/test",
-            "title": "test 测试"
-          }
-        ]
+        "list": []
       },
       {
         "groupName": "Form",
@@ -48,8 +43,8 @@
         "groupName": "Others",
         "list": [
           {
-            "path": "/test2",
-            "title": "test2 测试2"
+            "path": "/hello-world",
+            "title": "hello-world 你好"
           }
         ]
       }

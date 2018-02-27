@@ -16,6 +16,8 @@ new:
 # 生成json文件
 json:
 	@npm run json
+pages:
+	@npm run pages
 # 打包组件
 dist:
 	npm run dist
