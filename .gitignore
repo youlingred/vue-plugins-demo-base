@@ -9,6 +9,8 @@ yarn-error.log
 lerna-debug.log
 build/bin/algolia-key.js
 # doc/pages/*.vue
+npm-debug.log
+yarn-error.log
 
 # Editor directories and files
 .idea

@@ -1,0 +1,16 @@
+{
+  "name": "ty-test",
+  "version": "0.0.0",
+  "description": "Basic | Test | 测试 | for vue.js",
+  "main": "./dist/index.js",
+  "keywords": [
+    "vue-component-base",
+    "vue",
+    "component"
+  ],
+  "repository": "https://gitlab.tydicdev.com/DS/fe-base/vue-components-base/master/src/components/${componentname}",
+  "author": "xiehui",
+  "license": "MIT",
+  "dependencies": {}
+}
+
