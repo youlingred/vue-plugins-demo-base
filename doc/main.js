@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Tyindex from '../src/index'
+import TyIndex from '../src/index';
 import entry from './App';
 import VueRouter from 'vue-router';
 import Element from 'element-ui';
@@ -12,6 +12,7 @@ import SideNav from './components/side-nav';
 import FooterNav from './components/footer-nav';
 import title from './json/title.json';
 
+Vue.use(TyIndex);
 Vue.use(Element);
 Vue.use(VueRouter);
 Vue.component('demo-block', demoBlock);
