@@ -40,6 +40,12 @@ module.exports = merge(webpackBaseConfig, {
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({ name: 'vendors', filename: 'vendor.bundle.js' }),
-    new FriendlyErrorsPlugin()
+    new FriendlyErrorsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
+      compress: {
+        warnings: false
+      }
+    })
   ]
 });
