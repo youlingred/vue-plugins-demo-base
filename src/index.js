@@ -1,17 +1,13 @@
 /* 由'./build/bin/build-comps-index.js' 自动生成*/
 
-import Test11 from './components/test11/index.js';
-import Test12 from './components/test12/index.js';
-import Test13 from './components/test13/index.js';
-import Test14 from './components/test14/index.js';
-import Ttt from './components/ttt/index.js';
+import HelloWorld from './components/helloWorld/index.js';
+import Test from './components/test/index.js';
+import Test2 from './components/test2/index.js';
 
 const components = [
-  Test11,
-  Test12,
-  Test13,
-  Test14,
-  Ttt,
+  HelloWorld,
+  Test,
+  Test2,
 ];
 
 const install = function(Vue, opts = {}) {
@@ -31,11 +27,9 @@ if (typeof window !== 'undefined' && window.Vue) {
 module.exports = {
   version: '1.0.0',
   install,
-  Test11,
-  Test12,
-  Test13,
-  Test14,
-  Ttt
+  HelloWorld,
+  Test,
+  Test2
 };
 
 module.exports.default = module.exports;
