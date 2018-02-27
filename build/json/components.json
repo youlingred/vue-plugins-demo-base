@@ -1,0 +1,5 @@
+{
+  "helloWorld": "./components/helloWorld/index.js",
+  "test": "./components/test/index.js",
+  "test2": "./components/test2/index.js"
+}

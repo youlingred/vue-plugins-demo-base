@@ -1,0 +1,125 @@
+'use strict';
+/**创建组件,并生成组件相关文件**/
+console.log('');
+process.on('exit', () => {
+  console.log('');
+});
+
+if (!process.argv[2]) {
+  console.error('[组件名]第一个参数必填 ');
+  process.exit(1);
+}
+if (!process.argv[3]) {
+  console.error('[组件中文名]第二个参数必填');
+  process.exit(1);
+}
+if (!process.argv[4]) {
+  console.error('[组件分组名]第三个参数必填');
+  process.exit(1);
+}
+if (!process.argv[5]) {
+  console.error('[作者名]第四个参数必填');
+  process.exit(1);
+}
+const fs=require('fs');
+const chalk=require('chalk');
+const path = require('path');
+const dir=require('../utils/dir')
+const fileSave = require('file-save');
+const render = require('json-templater/string');
+const uppercamelcase = require('uppercamelcase');
+//FIXME 定义名称常量
+const componentname = process.argv[2];
+const chineseName = process.argv[3];
+const groupName=process.argv[4]
+const author = process.argv[5];
+
+const ComponentName = uppercamelcase(componentname);
+const PackagePath = path.resolve(__dirname, '../../src/components', componentname);
+
+//FIXME 检查文件是否存在
+if(fs.existsSync(dir.rootof('src/components/'+componentname))){
+  console.log(dir.rootof('src/components/'+componentname))
+  console.error(chalk.red(`warning:组件${componentname}已经存在`));
+  process.exit(1);
+}
+//FIXME 定义模板文件常量
+const tplIndex=fs.readFileSync(path.resolve(__dirname,'../tpl/component.index.tpl'),'utf8');
+const tplConfig=fs.readFileSync(path.resolve(__dirname,'../tpl/component.config.tpl'),'utf8');
+const tplPackage=fs.readFileSync(path.resolve(__dirname,'../tpl/component.package.tpl'),'utf8')
+const tplMain=fs.readFileSync(path.resolve(__dirname,'../tpl/component.main.tpl'),'utf8')
+const Files=[
+  {
+    filename:'index.js',
+    content:render(tplIndex,{
+      ComponentName:ComponentName
+    })
+  },
+  {
+    filename:'config.js',
+    content:render(tplConfig,{
+      ComponentName:ComponentName
+    })
+  },
+  {
+    filename:'package.json',
+    content:render(tplPackage,{
+      componentname:componentname,
+      ComponentName:ComponentName,
+      chineseName:chineseName,
+      groupName:groupName,
+      author:author
+    })
+  },
+  {
+    filename:'src/main.vue',
+    content:render(tplMain,{
+      ComponentName:ComponentName,
+      componentname:componentname
+    })
+  },
+  {
+    filename: `../../../doc/mds/${componentname}.md`,
+    content: `## ${ComponentName} ${chineseName}`
+  },
+];
+//FIXME 生成文件
+Files.forEach(file => {
+  const filePath=path.join(PackagePath, file.filename)
+  fileSave(filePath)
+    .write(file.content, 'utf8')
+    .end('\n');
+  console.log(chalk.green(`创建文件:${filePath}`));
+});
+console.log(chalk.green('success:组件'+chalk.red(componentname)+'创建完成'));
+
+
+// 添加到 build/json/components.json 转移到build/bin/build-json通过扫描列表文件生成
+// const componentsJsonPath=dir.rootof('build/json/components.json');
+// const componentsFile = require(componentsJsonPath);
+// if (componentsFile[componentname]) {
+//   console.error(chalk.bold.red(`error:${componentname} 已存在.`));
+//   process.exit(1);
+// }
+// componentsFile[componentname] = `./components/${componentname}/index.js`;
+// fileSave(componentsJsonPath)
+//   .write(JSON.stringify(componentsFile, null, '  '), 'utf8')
+//   .end('\n');
+
+// // 添加到 nav.config.json 转移到build/bin/build-json通过扫描列表文件生成
+// const navconfigFilePath=dir.rootof('build/json/nav.config.json');
+// const navConfigFile = require(navconfigFilePath);
+//
+// let groups = navConfigFile[2].groups;
+// groups[groups.length - 1].list.push({
+//   path: `/${componentname}`,
+//   title: componentname !== chineseName
+//     ? `${ComponentName} ${chineseName}`
+//     : ComponentName
+// });
+//
+// fileSave(navconfigFilePath)
+//   .write(JSON.stringify(navConfigFile, null, '  '), 'utf8')
+//   .end('\n');
+
+
