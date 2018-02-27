@@ -13,7 +13,7 @@ module.exports = merge(webpackBaseConfig, {
   // 入口
   entry: {
     main: './src/index',
-    vendors: ['vue', 'vue-router']
+    // vendors: ['vue', 'vue-router']
   },
   // 输出
   output: {
@@ -22,7 +22,7 @@ module.exports = merge(webpackBaseConfig, {
     library:'TyVuecoms',
     libraryTarget: "commonjs2",
     filename: 'index.js',
-    chunkFilename: '[name].chunk.js'
+    // chunkFilename: '[name].chunk.js'
   },
   externals:{
     vue:{
@@ -38,8 +38,9 @@ module.exports = merge(webpackBaseConfig, {
       // vue: 'vue/dist/vue.runtime.js'
     }
   },
+  devtool: '',
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin({ name: 'vendors', filename: 'vendor.bundle.js' }),
+    // new webpack.optimize.CommonsChunkPlugin({ name: 'vendors', filename: 'vendor.bundle.js' }),
     new FriendlyErrorsPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,

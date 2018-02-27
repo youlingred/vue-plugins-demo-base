@@ -36,6 +36,7 @@ module.exports = merge(webpackBaseConfig, {
       // vue: 'vue/dist/vue.runtime.js'
     }
   },
+  devtool: '',
   plugins: [
     new FriendlyErrorsPlugin()
   ]

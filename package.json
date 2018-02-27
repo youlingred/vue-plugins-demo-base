@@ -13,7 +13,7 @@
     "pages": "node build/bin/build-doc-pages.js",
     "page-tpl-watch": "node build/bin/template-watch.js",
     "dev": "npm run json&&cross-env NODE_ENV=development webpack-dev-server --open --hot --config ./build/config/webpack.dev.config.js",
-    "dist": "npm run clean && npm run dist:cmd",
+    "dist": "npm run clean && npm run dist:cmd && npm run dist:umd",
     "dist:cmd": "cross-env NODE_ENV=production webpack --config ./build/config/webpack.dist.cmd.config.js --progress --hide-modules",
     "dist:umd": "cross-env NODE_ENV=production webpack --config ./build/config/webpack.dist.umd.config.js --progress --hide-modules",
     "clean": "rimraf lib dist&& rimraf src/*/dist"
