@@ -20,10 +20,9 @@ if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue);
 };
 
-module.exports = {
+exports default {
   version: '{{version}}',
   install,
 {{list}}
 };
 
-module.exports.default = module.exports;

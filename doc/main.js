@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import Tyindex from '../src/index'
 import entry from './App';
 import VueRouter from 'vue-router';
 import Element from 'element-ui';
