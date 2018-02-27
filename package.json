@@ -3,7 +3,7 @@
   "description": "A Vue.js project",
   "version": "1.0.0",
   "author": "xiehui <30897863@qq.com>",
-  "main":"dist/index.js",
+  "main": "dist/index.js",
   "license": "MIT",
   "private": false,
   "scripts": {
@@ -14,8 +14,8 @@
     "page-tpl-watch": "node build/bin/template-watch.js",
     "dev": "npm run json&&cross-env NODE_ENV=development webpack-dev-server --open --hot --config ./build/config/webpack.dev.config.js",
     "dist": "npm run clean && npm run dist:cmd",
-    "dist:cmd":"cross-env NODE_ENV=production webpack --config ./build/config/webpack.dist.cmd.config.js --progress --hide-modules",
-    "dist:umd":"cross-env NODE_ENV=production webpack --config ./build/config/webpack.dist.umd.config.js --progress --hide-modules",
+    "dist:cmd": "cross-env NODE_ENV=production webpack --config ./build/config/webpack.dist.cmd.config.js --progress --hide-modules",
+    "dist:umd": "cross-env NODE_ENV=production webpack --config ./build/config/webpack.dist.umd.config.js --progress --hide-modules",
     "clean": "rimraf lib dist&& rimraf src/*/dist"
   },
   "dependencies": {
@@ -51,6 +51,7 @@
     "markdown-it-anchor": "^4.0.0",
     "markdown-it-container": "^2.0.0",
     "node-sass": "^4.7.2",
+    "perspective.js": "^1.0.0",
     "rimraf": "^2.6.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.20.2",
