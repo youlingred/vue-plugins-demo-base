@@ -21,7 +21,12 @@
     "groups": [
       {
         "groupName": "Basic",
-        "list": []
+        "list": [
+          {
+            "path": "/search-bar",
+            "title": "search-bar 搜索面板"
+          }
+        ]
       },
       {
         "groupName": "Form",
