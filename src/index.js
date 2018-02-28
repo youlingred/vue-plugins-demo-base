@@ -2,10 +2,12 @@
 
 import HelloWorld from './components/hello-world/index.js';
 import SearchBar from './components/search-bar/index.js';
+import TestButton from './components/test-button/index.js';
 
 const components = [
   HelloWorld,
   SearchBar,
+  TestButton,
 ];
 
 const install = function(Vue, opts = {}) {
@@ -26,6 +28,7 @@ export default {
   version: '1.0.0',
   install,
   HelloWorld,
-  SearchBar
+  SearchBar,
+  TestButton
 };
 

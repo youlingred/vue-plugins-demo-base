@@ -1,4 +1,5 @@
 {
   "hello-world": "./components/hello-world/index.js",
-  "search-bar": "./components/search-bar/index.js"
+  "search-bar": "./components/search-bar/index.js",
+  "test-button": "./components/test-button/index.js"
 }

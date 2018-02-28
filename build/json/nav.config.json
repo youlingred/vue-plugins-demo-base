@@ -25,6 +25,10 @@
           {
             "path": "/search-bar",
             "title": "search-bar 搜索面板"
+          },
+          {
+            "path": "/test-button",
+            "title": "test-button 测试组件"
           }
         ]
       },
