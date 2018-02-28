@@ -1,5 +1,7 @@
 <template>
-  <div class="ty-hello-world"></div>
+  <div class="ty-hello-world">
+    <button>我是按钮</button>
+  </div>
 </template>
 
 <script>
