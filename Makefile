@@ -12,12 +12,15 @@ dev:
 	npm run dev
 # 创建组件
 new:
-	@npm run new $(filter-out $@,$(MAKECMDGOALS))
+	npm run new $(filter-out $@,$(MAKECMDGOALS))
+# 生成样式
+theme:
+	npm run theme $(filter-out $@,$(MAKECMDGOALS))
 # 生成json文件
 json:
-	@npm run json
+	npm run json
 pages:
-	@npm run pages
+	npm run pages
 # 打包组件
 dist:
 	npm run dist

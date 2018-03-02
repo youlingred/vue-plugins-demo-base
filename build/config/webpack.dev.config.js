@@ -5,9 +5,8 @@
 const dir=require('../utils/dir');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const merge = require('webpack-merge');
-var md = require('markdown-it')();
-var striptags = require('../utils/strip-tags');
-var slugify = require('transliteration').slugify;
+let md = require('markdown-it')();
+let striptags = require('../utils/strip-tags');
 const webpackBaseConfig = require('./webpack.base.config.js');
 //Friendly-errors-webpack-plugin可识别某些类型的webpack错误并清理，聚合并优先考虑它们以提供更好的开发者体验。
 // http://npm.taobao.org/package/friendly-errors-webpack-plugin
@@ -52,35 +51,21 @@ module.exports = merge(webpackBaseConfig, {
         test: /\.md$/,
         loader: 'vue-markdown-loader',
         options:{
-          html:false,
           use: [
-            [require('markdown-it-anchor'), {
-              level: 2,
-              slugify: slugify,
-              permalink: true,
-              permalinkBefore: true
-            }],
             [require('markdown-it-container'), 'demo', {
               validate: function(params) {
                 return params.trim().match(/^demo\s*(.*)$/);
               },
-
               render: function(tokens, idx) {
-                var m = tokens[idx].info.trim().match(/^demo\s*(.*)$/);
+                let m = tokens[idx].info.trim().match(/^demo\s*(.*)$/);
                 if (tokens[idx].nesting === 1) {
-                  var description = (m && m.length > 1) ? m[1] : '';
-                  var content = tokens[idx + 1].content;
-                  var html = convert(striptags.strip(content, ['script', 'style'])).replace(/(<[^>]*)=""(?=.*>)/g, '$1');
-                  var script = striptags.fetch(content, 'script');
-                  var style = striptags.fetch(content, 'style');
-                  var jsfiddle = { html: html, script: script, style: style };
-                  var descriptionHTML = description
+                  let description = (m && m.length > 1) ? m[1] : '';
+                  let content = tokens[idx + 1].content;
+                  let html = convert(striptags.strip(content, ['script', 'style'])).replace(/(<[^>]*)=""(?=.*>)/g, '$1');
+                  let descriptionHTML = description
                     ? md.render(description)
                     : '';
-
-                  jsfiddle = md.utils.escapeHtml(JSON.stringify(jsfiddle));
-
-                  return `<demo-block class="demo-box" :jsfiddle="${jsfiddle}">
+                  return `<demo-block class="demo-box">
                     <div class="source" slot="source">${html}</div>
                     ${descriptionHTML}
                     <div class="highlight" slot="highlight">`;

@@ -175,14 +175,6 @@
         scrollParent: null
       };
     },
-
-    props: {
-      jsfiddle: Object,
-      default() {
-        return {};
-      }
-    },
-
     methods: {
       scrollHandler() {
         const { top, bottom, left } = this.$refs.meta.getBoundingClientRect();

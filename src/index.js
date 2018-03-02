@@ -2,11 +2,15 @@
 
 import HelloWorld from './components/hello-world/index.js';
 import SearchBar from './components/search-bar/index.js';
+import TestAlert from './components/test-alert/index.js';
+import TestAlert1 from './components/test-alert1/index.js';
 import TestButton from './components/test-button/index.js';
 
 const components = [
   HelloWorld,
   SearchBar,
+  TestAlert,
+  TestAlert1,
   TestButton,
 ];
 
@@ -29,6 +33,8 @@ export default {
   install,
   HelloWorld,
   SearchBar,
+  TestAlert,
+  TestAlert1,
   TestButton
 };
 

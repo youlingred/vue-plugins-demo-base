@@ -1,5 +1,7 @@
 {
   "hello-world": "./components/hello-world/index.js",
   "search-bar": "./components/search-bar/index.js",
+  "test-alert": "./components/test-alert/index.js",
+  "test-alert1": "./components/test-alert1/index.js",
   "test-button": "./components/test-button/index.js"
 }

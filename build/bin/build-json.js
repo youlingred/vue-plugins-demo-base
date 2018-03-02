@@ -1,8 +1,8 @@
 //FIXME 当components.json意外损坏时,可以用npm run re-coms-json
 const fs=require('fs');
 const path=require('path');
-const fileSaveCom = require('file-save');
-const fileSaveNav = require('file-save');
+const fileSave = require('file-save');
+const fileSave = require('file-save');
 const dir=require('../utils/dir')
 const comsJsonPath=dir.rootof('build/json/components.json');
 const navJsonPath=dir.rootof('build/json/nav.config.json');
@@ -42,12 +42,12 @@ dirList.forEach(file=>{
   }
 });
 //FIXME 生成组件列表文件
-fileSaveCom(comsJsonPath)
+fileSave(comsJsonPath)
   .write(JSON.stringify(comsFile, null, '  '), 'utf8')
   .end('\n');
 console.log(`生成组件列表文件:${comsJsonPath}`);
 //FIXME 生成组件导航文件
-fileSaveNav(navJsonPath)
+fileSave(navJsonPath)
   .write(JSON.stringify(navsObj, null, '  '), 'utf8')
   .end('\n');
 console.log(`生成组件导航文件:${navJsonPath}`)

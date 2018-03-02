@@ -94,32 +94,4 @@ Files.forEach(file => {
 console.log(chalk.green('success:组件'+chalk.red(componentname)+'创建完成'));
 
 
-// 添加到 build/json/components.json 转移到build/bin/build-json通过扫描列表文件生成
-// const componentsJsonPath=dir.rootof('build/json/components.json');
-// const componentsFile = require(componentsJsonPath);
-// if (componentsFile[componentname]) {
-//   console.error(chalk.bold.red(`error:${componentname} 已存在.`));
-//   process.exit(1);
-// }
-// componentsFile[componentname] = `./components/${componentname}/index.js`;
-// fileSave(componentsJsonPath)
-//   .write(JSON.stringify(componentsFile, null, '  '), 'utf8')
-//   .end('\n');
-
-// // 添加到 nav.config.json 转移到build/bin/build-json通过扫描列表文件生成
-// const navconfigFilePath=dir.rootof('build/json/nav.config.json');
-// const navConfigFile = require(navconfigFilePath);
-//
-// let groups = navConfigFile[2].groups;
-// groups[groups.length - 1].list.push({
-//   path: `/${componentname}`,
-//   title: componentname !== chineseName
-//     ? `${ComponentName} ${chineseName}`
-//     : ComponentName
-// });
-//
-// fileSave(navconfigFilePath)
-//   .write(JSON.stringify(navConfigFile, null, '  '), 'utf8')
-//   .end('\n');
-
 

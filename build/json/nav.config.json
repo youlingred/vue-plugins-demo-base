@@ -27,6 +27,14 @@
             "title": "search-bar 搜索面板"
           },
           {
+            "path": "/test-alert",
+            "title": "test-alert 警告"
+          },
+          {
+            "path": "/test-alert1",
+            "title": "test-alert1 警告"
+          },
+          {
             "path": "/test-button",
             "title": "test-button 测试组件"
           }
