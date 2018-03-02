@@ -60,14 +60,11 @@ let comsDir = fs.readdirSync(comsPath);
 comsDir.forEach(file => {
   let filePath = dir(`${themePath}/${themeName}/src/${file}.scss`);
   if (!fs.existsSync(filePath)) {
-    console.log(file)
     fileSave(filePath);
   }
   importScss.push(render(IMPORT_TEMPLATE, {name: file}));
 });
 //生成index.scss
-console.log(indexPath)
-console.log(importScss)
 fileSave(indexPath)
   .write(importScss.join(endOfLine),'utf8')
   .end('\n');
