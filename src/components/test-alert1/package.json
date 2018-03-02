@@ -1,0 +1,16 @@
+{
+  "name": "ty-test-alert1",
+  "version": "0.0.0",
+  "description": "Basic | TestAlert1 | 警告 | for vue.js",
+  "main": "./dist/index.js",
+  "keywords": [
+    "vue-component-base",
+    "vue",
+    "component"
+  ],
+  "repository": "https://gitlab.tydicdev.com/DS/fe-base/vue-components-base/master/src/components/${componentname}",
+  "author": "谢辉",
+  "license": "MIT",
+  "dependencies": {}
+}
+
