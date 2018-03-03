@@ -2,8 +2,11 @@
 node_modules/
 dist/
 src/components/*/dist/
+themes/*/dist/
+themes/*/node_modules/
 npm-debug.log
 yarn-error.log
+lerna-debug.log
 
 # Editor directories and files
 .idea

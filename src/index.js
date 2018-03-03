@@ -4,14 +4,12 @@ import HelloWorld from './components/hello-world/index.js';
 import SearchBar from './components/search-bar/index.js';
 import TestAlert from './components/test-alert/index.js';
 import TestAlert1 from './components/test-alert1/index.js';
-import TestButton from './components/test-button/index.js';
 
 const components = [
   HelloWorld,
   SearchBar,
   TestAlert,
   TestAlert1,
-  TestButton,
 ];
 
 const install = function(Vue, opts = {}) {
@@ -29,12 +27,11 @@ if (typeof window !== 'undefined' && window.Vue) {
 };
 
 export default {
-  version: '1.0.0',
+  version: '1.0.5',
   install,
   HelloWorld,
   SearchBar,
   TestAlert,
-  TestAlert1,
-  TestButton
+  TestAlert1
 };
 

@@ -1,23 +1,32 @@
 {
-  "name": "ty-vue-component-base1",
+  "name": "ty-vue-component-base",
   "description": "A Vue.js project",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "author": "xiehui <30897863@qq.com>",
   "main": "dist/index.js",
   "license": "MIT",
   "private": false,
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "new": "node build/bin/new.js",
-    "theme": "node build/bin/theme.js",
     "json": "node build/bin/build-json.js&&npm run index",
     "index": "node build/bin/build-comps-index.js",
     "pages": "node build/bin/build-doc-pages.js",
     "page-tpl-watch": "node build/bin/template-watch.js",
     "dev": "npm run json&&cross-env NODE_ENV=development webpack-dev-server --open --hot --config ./build/config/webpack.dev.config.js",
-    "dist": "npm run clean && npm run dist:cmd && npm run dist:umd",
+    "dist": "npm run clean && npm run json && npm run dist:cmd && npm run dist:umd && npm run dist:theme",
     "dist:cmd": "cross-env NODE_ENV=production webpack --config ./build/config/webpack.dist.cmd.config.js --progress --hide-modules",
     "dist:umd": "cross-env NODE_ENV=production webpack --config ./build/config/webpack.dist.umd.config.js --progress --hide-modules",
-    "clean": "rimraf lib dist&& rimraf src/*/dist"
+    "dist:all":"npm run clean && lerna run dist:component",
+    "pub": "npm run dist && npm publish",
+    "pub:all": "npm run dist:all && lerna publish --skip-git",
+    "clean": "rimraf dist && rimraf src/components/*/dist && npm run clean:theme",
+    "theme": "node build/bin/theme.js",
+    "dist:theme": "lerna run dist:theme",
+    "pub:theme": "npm run dist:all && lerna publish --skip-git",
+    "clean:theme": "rimraf themes/*/dist && lerna clean --yes"
   },
   "dependencies": {
     "vue": "^2.5.11"
@@ -52,6 +61,7 @@
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^2.30.1",
     "json-templater": "^1.2.0",
+    "lerna": "^2.9.0",
     "markdown-it": "^8.4.1",
     "markdown-it-anchor": "^4.0.0",
     "markdown-it-container": "^2.0.0",

@@ -66,7 +66,7 @@ module.exports = {
     hints: "error"
   },
   //开启source-map
-  devtool: '#source-map',
+  // devtool: '#source-map',
   plugins:[
   //美化source-map
     new webpack.optimize.UglifyJsPlugin({
