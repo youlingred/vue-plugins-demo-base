@@ -30,11 +30,6 @@
         ]
       },
       {
-        "groupName": "Table",
-        "list": [
-        ]
-      },
-      {
         "groupName": "Data",
         "list": [
         ]
