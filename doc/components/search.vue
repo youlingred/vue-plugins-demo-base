@@ -37,7 +37,7 @@
 <style>
   .algolia-search {
     width: 450px !important;
-  
+
     &.is-empty {
       .el-autocomplete-suggestion__list {
         padding-bottom: 0;
@@ -51,27 +51,27 @@
 
     li {
       border-bottom: solid 1px #ebebeb;
-      
+
       &:last-child {
          border-bottom: none;
        }
     }
-    
+
     .algolia-highlight {
       color: #409EFF;
       font-weight: bold;
     }
-    
+
     .algolia-search-title {
       font-size: 14px;
       margin: 6px 0;
       line-height: 1.8;
     }
-    
+
     .algolia-search-separator {
       padding: 0 6px;
     }
-    
+
     .algolia-search-content {
       font-size: 12px;
       margin: 6px 0;
@@ -80,7 +80,7 @@
       text-overflow: ellipsis;
       white-space: nowrap;
     }
-    
+
     .algolia-search-link {
       position: absolute;
       bottom: 0;
@@ -96,14 +96,14 @@
       &:hover {
          background-color: #e4e7ed;
        }
-    
+
       img {
         display: inline-block;
         height: 17px;
         margin-top: 10px;
       }
     }
-  
+
     .algolia-search-empty {
       margin: 5px 0;
       text-align: center;
@@ -122,49 +122,26 @@
         query: '',
         isEmpty: false,
         langs: {
-          'zh-CN': {
-            search: '搜索文档',
-            empty: '无匹配结果',
-            index: 'zh'
-          },
-          'en-US': {
-            search: 'Search',
-            empty: 'No results',
-            index: 'en'
-          },
-          'es': {
-            search: 'Buscar',
-            empty: 'No hay datos que coincidan',
-            index: 'es'
-          }
+          search: '搜索文档',
+          empty: '无匹配结果',
+          index: 'zh'
         }
       };
     },
 
     computed: {
-      lang() {
-        return this.$route.meta.lang;
-      },
-
       placeholder() {
-        return this.lang ? this.langs[this.lang].search : '';
+        return this.langs.search;
       },
 
       emptyText() {
-        return this.lang ? this.langs[this.lang].empty : '';
+        return this.langs.empty;
       }
     },
-
-    watch: {
-      lang() {
-        this.initIndex();
-      }
-    },
-
     methods: {
       initIndex() {
-        const client = algoliasearch('9NLTR1QH8B', 'a75cbec97cda75ab7334fed9219ecc57');
-        this.index = client.initIndex(`element-${ this.lang ? this.langs[this.lang].index : 'zh' }`);
+        const client = algoliasearch('6IDLWGB5ZQ', 'b72fff3bda39494a6e9e078c50b77a48');
+        this.index = client.initIndex('tydic-vue-component-base');
       },
 
       querySearch(query, cb) {
@@ -205,7 +182,7 @@
         if (val.img || val.isEmpty) return;
         const component = val.component || '';
         const anchor = val.anchor;
-        this.$router.push(`/${ this.lang }/component/${ component }${ anchor ? `#${ anchor }` : '' }`);
+        this.$router.push(`/component/${ component }${ anchor ? `#${ anchor }` : '' }`);
       }
     },
 

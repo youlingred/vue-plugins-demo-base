@@ -4,6 +4,7 @@
 
 const dir=require('../utils/dir');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+var slugify = require('transliteration').slugify;
 const merge = require('webpack-merge');
 let md = require('markdown-it')();
 let striptags = require('../utils/strip-tags');
@@ -52,6 +53,12 @@ module.exports = merge(webpackBaseConfig, {
         loader: 'vue-markdown-loader',
         options:{
           use: [
+            [require('markdown-it-anchor'), {
+              level: 2,
+              slugify: slugify,
+              permalink: true,
+              permalinkBefore: true
+            }],
             [require('markdown-it-container'), 'demo', {
               validate: function(params) {
                 return params.trim().match(/^demo\s*(.*)$/);

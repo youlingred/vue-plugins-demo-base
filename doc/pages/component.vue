@@ -204,6 +204,12 @@
     },
     watch: {
       '$route.path'() {
+        if (location.href.match(/#/g).length < 2) {
+          document.documentElement.scrollTop = document.body.scrollTop = 0;
+          this.renderAnchorHref();
+        } else {
+          this.goAnchor();
+        }
         // 触发伪滚动条更新
         this.componentScrollBox.scrollTop = 0;
         this.$nextTick(() => {
@@ -216,9 +222,9 @@
         if (/changelog/g.test(location.href)) return;
         const anchors = document.querySelectorAll('h2 a,h3 a');
         const basePath = location.href.split('#').splice(0, 2).join('#');
-
         [].slice.call(anchors).forEach(a => {
           const href = a.getAttribute('href');
+          console.log('a.href:',basePath,href);
           a.href = basePath + href;
         });
       },
@@ -256,17 +262,20 @@
         this.scrollTop = scrollTop;
       }
     },
-    created() {
-      bus.$on('navFade', val => {
-        this.navFaded = val;
-      });
-      window.addEventListener('hashchange', () => {
+    beforeRouteUpdate(to, from, next){
+      setTimeout(()=>{
         if (location.href.match(/#/g).length < 2) {
           document.documentElement.scrollTop = document.body.scrollTop = 0;
           this.renderAnchorHref();
         } else {
           this.goAnchor();
         }
+      },100)
+      next();
+    },
+    created() {
+      bus.$on('navFade', val => {
+        this.navFaded = val;
       });
     },
     mounted() {

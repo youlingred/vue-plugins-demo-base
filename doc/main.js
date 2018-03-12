@@ -27,10 +27,9 @@ const router = new VueRouter({
   routes
 });
 router.afterEach(route => {
-  const data = title[route.meta.lang];
-  for (let val in data) {
+  for (let val in title) {
     if (new RegExp('^' + val, 'g').test(route.name)) {
-      document.title = data[val];
+      document.title = title[val];
       return;
     }
   }
