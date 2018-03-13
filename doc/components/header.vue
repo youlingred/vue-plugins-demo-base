@@ -180,7 +180,7 @@
 
         </router-link></h1>
 
-        <!-- nav -->
+        <!--//FIXME 顶部菜单 -->
         <ul class="nav">
           <li class="nav-item nav-algolia-search" v-show="isComponentPage">
             <algolia-search></algolia-search>
@@ -204,11 +204,7 @@
               exact>{{ langConfig.resource }}
             </router-link>
           </li>
-
-          <!--&lt;!&ndash; gap &ndash;&gt;-->
-          <!--<li class="nav-item" v-show="isComponentPage">-->
-            <!--<div class="nav-gap"></div>-->
-          <!--</li>-->
+          <!--//FIXME 顶部菜单end-->
         </ul>
       </div>
     </header>

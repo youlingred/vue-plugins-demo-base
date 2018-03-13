@@ -70,28 +70,33 @@ let route = registerRoute(navConfig);
 //生成一级路由
 const generateMiscRoutes = function () {
   let guideRoute = {
-    path: `/guide`, // 指南
+  // 指南
+    path: `/guide`,
     redirect: `/guide/design`,
     component: load('guide'),
-    children: [{
-      path: 'design', // 设计原则
+    children: [
+      {
+      // 设计原则
+      path: 'design',
       name: 'guide-design',
       component: load('design')
-    }, {
-      path: 'nav', // 导航
+    },
+      {
+      // 导航
+      path: 'nav',
       name: 'guide-nav',
       component: load('nav')
     }]
   };
-
+  // 资源
   let resourceRoute = {
-    path: `/resource`, // 资源
+    path: `/resource`,
     name: 'resource',
     component: load('resource')
   };
-
+  // 首页
   let indexRoute = {
-    path: `/`, // 首页
+    path: `/`,
     name: 'home',
     component: load('index')
   };
