@@ -117,7 +117,26 @@ const generateMiscRoutes = function () {
 
 :::tip
 包含二级菜单的页面结构可以参考`doc/pages/guild.vue`
+
 :::
+###组件分类页面下的二级菜单不能更改,但可以修改`build/json/nav.config.json`
+
+```javascript
+ {
+    "name": "开发指南",
+    "children": [
+      {
+        "path": "/installation",
+        "name": "安装"
+      },
+      {
+        "path": "/quickstart",
+        "name": "快速上手"
+      }
+      //可以在此添加三级菜单,对应在mdsdoc/文件夹内构建相对于path的md文件
+    ]
+  },
+```
 
 #### 文档搜索
 
