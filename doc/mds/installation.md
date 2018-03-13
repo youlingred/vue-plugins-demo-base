@@ -75,8 +75,8 @@ const generateMiscRoutes = function () {
 ```
 添加中文名称`doc/json/component.json`
 
-```json
- "header": {
+```html
+ "header":{
     "testHeader":"测试顶部菜单"
   }
 ```
@@ -97,7 +97,7 @@ const generateMiscRoutes = function () {
   let testHeaderRoute = {
     path: `/testHeader`,
     name: 'testHeader',
-    component: load('testHeader')
+    component: load('testHeader'),
     children: [
           {
           // 二级菜单
@@ -121,7 +121,7 @@ const generateMiscRoutes = function () {
 :::
 ###组件分类页面下的二级菜单不能更改,但可以修改`build/json/nav.config.json`
 
-```javascript
+```json
  {
     "name": "开发指南",
     "children": [
@@ -135,7 +135,7 @@ const generateMiscRoutes = function () {
       }
       //可以在此添加三级菜单,对应在mdsdoc/文件夹内构建相对于path的md文件
     ]
-  },
+  }
 ```
 
 #### 文档搜索
@@ -153,8 +153,8 @@ module.exports=module.exports.default = 'Admin API Key'
 
 修改文件`doc/components/search.vue`
 
-```javascript
-  initIndex() {
+```vue
+  initIndex(){
     const client = algoliasearch('Application ID', 'Search-Only API Key');
     this.index = client.initIndex('tydic-vue-component-base');
   }
@@ -170,7 +170,7 @@ module.exports=module.exports.default = 'Admin API Key'
 
 
 上传自己的组件文档数据到algolia:
-```javascript
+```html
 node build/bin/gen-indices.js
 ```
 

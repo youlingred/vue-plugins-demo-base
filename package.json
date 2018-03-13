@@ -2,7 +2,7 @@
   "name": "{{projectName}}",
   "description": "{{projectDescription}}",
   "version": "{{projectVersion}}",
-  "author": "{{projectAuthor}",
+  "author": "{{projectAuthor}}",
   "main": "dist/index.js",
   "license": "MIT",
   "private": false,
