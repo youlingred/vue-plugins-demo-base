@@ -1,0 +1,17 @@
+{
+  "name": "ty-search-bar",
+  "version": "0.0.2",
+  "description": "Basic | SearchBar | 搜索面板 | for vue.js",
+  "main": "./dist/index.js",
+  "keywords": [
+    "vue-component-base",
+    "vue",
+    "component"
+  ],
+  "scripts": {
+    "dist:component": "cross-env NODE_ENV=production webpack --config ./config.js --progress --hide-modules"
+  },
+  "repository": "https://gitlab.tydicdev.com/DS/fe-base/vue-components-base/master/src/components/${componentname}",
+  "author": "zzh",
+  "license": "MIT"
+}

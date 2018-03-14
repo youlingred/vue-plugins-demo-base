@@ -1,0 +1,18 @@
+.DS_Store
+node_modules/
+dist/
+src/components/*/dist/
+themes/*/dist/
+themes/*/node_modules/
+npm-debug.log
+yarn-error.log
+lerna-debug.log
+build/bin/algolia-key.js
+doc/pages/*.vue
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
