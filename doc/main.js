@@ -3,6 +3,8 @@ import TyIndex from '../src/index';
 import entry from './App';
 import VueRouter from 'vue-router';
 import Element from 'element-ui';
+import iView from 'iview';
+import 'iview/dist/styles/iview.css';
 import 'element-ui/lib/theme-chalk/index.css';
 import routes from './route.config';
 import demoBlock from './components/demo-block.vue';
@@ -11,9 +13,13 @@ import MainHeader from './components/header.vue';
 import SideNav from './components/side-nav';
 import FooterNav from './components/footer-nav';
 import title from './json/title.json';
+import ZkTable from 'vue-table-with-tree-grid'
+
 
 Vue.use(TyIndex);
 Vue.use(Element);
+Vue.use(iView);
+Vue.use(ZkTable)
 Vue.use(VueRouter);
 Vue.component('demo-block', demoBlock);
 Vue.component('main-footer', MainFooter);
