@@ -55,24 +55,24 @@ const Files=[
       ComponentName:ComponentName
     })
   },
+  // {
+  //   filename:'config.js',
+  //   content:render(tplConfig,{
+  //     ComponentName:ComponentName
+  //   })
+  // },
+  // {
+  //   filename:'package.json',
+  //   content:render(tplPackage,{
+  //     componentname:componentname,
+  //     ComponentName:ComponentName,
+  //     chineseName:chineseName,
+  //     groupName:groupName,
+  //     author:author
+  //   })
+  // },
   {
-    filename:'config.js',
-    content:render(tplConfig,{
-      ComponentName:ComponentName
-    })
-  },
-  {
-    filename:'package.json',
-    content:render(tplPackage,{
-      componentname:componentname,
-      ComponentName:ComponentName,
-      chineseName:chineseName,
-      groupName:groupName,
-      author:author
-    })
-  },
-  {
-    filename:'src/main.vue',
+    filename:'main.vue',
     content:render(tplMain,{
       ComponentName:ComponentName,
       componentname:componentname
