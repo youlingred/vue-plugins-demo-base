@@ -41,7 +41,12 @@
       },
       {
         "groupName": "Others",
-        "list": []
+        "list": [
+          {
+            "path": "/hello-world",
+            "title": "hello-world 你好"
+          }
+        ]
       }
     ]
   }
