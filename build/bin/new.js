@@ -61,16 +61,16 @@ const Files=[
   //     ComponentName:ComponentName
   //   })
   // },
-  // {
-  //   filename:'package.json',
-  //   content:render(tplPackage,{
-  //     componentname:componentname,
-  //     ComponentName:ComponentName,
-  //     chineseName:chineseName,
-  //     groupName:groupName,
-  //     author:author
-  //   })
-  // },
+  {
+    filename:'package.json',
+    content:render(tplPackage,{
+      componentname:componentname,
+      ComponentName:ComponentName,
+      chineseName:chineseName,
+      groupName:groupName,
+      author:author
+    })
+  },
   {
     filename:'main.vue',
     content:render(tplMain,{
