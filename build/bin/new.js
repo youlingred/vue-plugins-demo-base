@@ -55,12 +55,12 @@ const Files=[
       ComponentName:ComponentName
     })
   },
-  // {
-  //   filename:'config.js',
-  //   content:render(tplConfig,{
-  //     ComponentName:ComponentName
-  //   })
-  // },
+  {
+    filename:'config.js',
+    content:render(tplConfig,{
+      ComponentName:ComponentName
+    })
+  },
   {
     filename:'package.json',
     content:render(tplPackage,{
