@@ -1,6 +1,6 @@
 <template>
   <div class="ty-hello-world">
-    <button>我是按钮</button>
+    <el-button>hello world</el-button>
   </div>
 </template>
 

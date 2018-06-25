@@ -3,6 +3,7 @@
  */
 
 const dir=require('../utils/dir');
+const webpack=require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 var slugify = require('transliteration').slugify;
 const merge = require('webpack-merge');
