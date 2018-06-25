@@ -72,7 +72,7 @@ const Files=[
     })
   },
   {
-    filename:'main.vue',
+    filename:'src/main.vue',
     content:render(tplMain,{
       ComponentName:ComponentName,
       componentname:componentname
