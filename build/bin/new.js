@@ -72,7 +72,7 @@ const Files=[
     })
   },
   {
-    filename:'main.vue',
+    filename:'src/main.vue',
     content:render(tplMain,{
       ComponentName:ComponentName,
       componentname:componentname
@@ -80,7 +80,7 @@ const Files=[
   },
   {
     filename: `../../../doc/mds/${componentname}.md`,
-    content: `## ${ComponentName} ${chineseName}`
+    content: `## ${ComponentName} ${chineseName}\n:::demo\n\`\`\`html\n<ty-${componentname}/>\n<file>${componentname}</file>\n\`\`\`\n:::`
   },
 ];
 //FIXME 生成文件
