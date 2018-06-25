@@ -1,5 +1,5 @@
 /**
- * 本地预览
+ * 开发配置
  */
 const fs=require('fs');
 const dir=require('../utils/dir');
