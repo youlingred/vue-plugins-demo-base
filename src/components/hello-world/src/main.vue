@@ -5,8 +5,8 @@
 </template>
 
 <script>
-export default {
-  name: 'TyHelloWorld'
-};
+  export default {
+    name: 'TyHelloWorld'
+  };
 </script>
 
