@@ -173,5 +173,6 @@ module.exports=module.exports.default = 'Admin API Key'
 ```html
 node build/bin/gen-indices.js
 ```
-
+###优化
+在代码块内使用`{{xxx.js}}`嵌入示例代码,替代原来的手动书写
 
