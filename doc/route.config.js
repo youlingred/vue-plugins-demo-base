@@ -110,7 +110,8 @@ console.log(route)
 //设置首页默认重定向
 route = route.concat([{
   path: '/',
-  redirect: '/'
+  // redirect: '/'  //重定向的首页
+  redirect: '/component'  //重定向的组件页
 }, {
   path: '*',
   redirect: '/'

@@ -1,9 +1,8 @@
 /**
- * 本地预览
+ * 生产配置
  */
-
+const fs=require('fs');
 const dir=require('../utils/dir');
-const webpack=require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 var slugify = require('transliteration').slugify;
 const merge = require('webpack-merge');
@@ -36,7 +35,7 @@ module.exports = merge(webpackBaseConfig, {
   },
   // 输出
   output: {
-    path: dir.rootof('dist'),
+    path: dir.rootof('doc/dist'),
     publicPath: '',
     filename: '[name].js',
     chunkFilename: '[name].chunk.js'
@@ -69,10 +68,16 @@ module.exports = merge(webpackBaseConfig, {
                 if (tokens[idx].nesting === 1) {
                   let description = (m && m.length > 1) ? m[1] : '';
                   let content = tokens[idx + 1].content;
-                  let html = convert(striptags.strip(content, ['script', 'style'])).replace(/(<[^>]*)=""(?=.*>)/g, '$1');
+                  let code,filename=striptags.fetch(content,'file');
+                  if(filename){
+                    let filepath=dir.rootof(`src/components/${filename}/src/main.vue`);
+                    code = fs.readFileSync(filepath, 'utf8')||'';
+                  }
+                  let html = convert(striptags.strip(content, ['file','script', 'style'])).replace(/(<[^>]*)=""(?=.*>)/g, '$1');
                   let descriptionHTML = description
                     ? md.render(description)
                     : '';
+                  tokens[idx + 1].content=code || '';
                   return `<demo-block class="demo-box">
                     <div class="source" slot="source">${html}</div>
                     ${descriptionHTML}
@@ -82,7 +87,7 @@ module.exports = merge(webpackBaseConfig, {
               }
             }],
             [require('markdown-it-container'), 'tip'],
-            [require('markdown-it-container'), 'warning']
+            [require('markdown-it-container'), 'warning'],
           ],
           preprocess: function(MarkdownIt, source) {
             MarkdownIt.renderer.rules.table_open = function() {
@@ -94,16 +99,6 @@ module.exports = merge(webpackBaseConfig, {
         }
       }
     ]
-  },
-  // devServer: {
-  //   contentBase: dir.rootof('doc/dist'),
-  //   compress: true,
-  //   port: 9000
-  // },
-  devServer: {
-    historyApiFallback: true,
-    noInfo: true,
-    overlay: true
   },
   plugins: [
     // new webpack.optimize.CommonsChunkPlugin({ name: 'vendors', filename: 'vendor.bundle.js' }),
