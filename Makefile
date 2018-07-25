@@ -16,6 +16,9 @@ new:
 # 创建组件
 new-nomd:
 	npm run new-nomd $(filter-out $@,$(MAKECMDGOALS))
+# 生成搜索文件
+gen-search:
+	npm run gen-search
 # 生成json文件
 json:
 	npm run json
