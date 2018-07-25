@@ -1,12 +1,14 @@
 /* 由'./build/bin/build-comps-index.js' 自动生成*/
 
+import Button from './components/button/index.js';
+import ButtonBlue from './components/button-blue/index.js';
 import HelloWorld from './components/hello-world/index.js';
-import Test from './components/test/index.js';
 import TreeTable from './components/tree-table/index.js';
 
 const components = [
+  Button,
+  ButtonBlue,
   HelloWorld,
-  Test,
   TreeTable,
 ];
 
@@ -27,8 +29,9 @@ if (typeof window !== 'undefined' && window.Vue) {
 export default {
   version: '1.0.0',
   install,
+  Button,
+  ButtonBlue,
   HelloWorld,
-  Test,
   TreeTable
 };
 

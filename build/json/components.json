@@ -1,5 +1,6 @@
 {
+  "button": "./components/button/index.js",
+  "button-blue": "./components/button-blue/index.js",
   "hello-world": "./components/hello-world/index.js",
-  "test": "./components/test/index.js",
   "tree-table": "./components/tree-table/index.js"
 }
