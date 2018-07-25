@@ -35,6 +35,18 @@ tydic init <模板名称> [项目文件夹名称]
 ```html
 tydic init vue-component-base
 ```
+### 命令行
+切换到项目根目录下
+```bash
+make install     //安装依赖
+make install-cn  //淘宝镜像安装依赖
+make new <component-name> <中文名> <组件分组名> <作者名>     //创建新组件. 例如 'make new radio-button 单选按钮 Basic 谢辉'
+make dev         //开发模式
+make dist        //编译项目，生成目标文件
+```
+
+> 如果是windows系统,并且未安装make环境,请将make替换为npm run
+
 ### 配置
 
 #### 文档配置

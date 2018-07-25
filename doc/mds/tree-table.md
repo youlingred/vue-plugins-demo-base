@@ -22,3 +22,10 @@ Vue.use(ZkTable)
   <file>tree-table</file>
 ```
 :::
+### DEMO
+:::demo
+```html
+  <ty-hello-world/>
+  <file>hello-world</file>
+```
+:::

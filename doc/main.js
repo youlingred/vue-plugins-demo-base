@@ -13,7 +13,7 @@ import MainHeader from './components/header.vue';
 import SideNav from './components/side-nav';
 import FooterNav from './components/footer-nav';
 import title from './json/title.json';
-import ZkTable from 'vue-table-with-tree-grid'
+import ZkTable from 'vue-tree-grid-nh';
 
 
 Vue.use(TyIndex);

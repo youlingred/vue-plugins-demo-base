@@ -5,7 +5,9 @@
               :border="true"
               :tree-type="true"
               :expand-type="false"
-              :selection-type="false">
+              :selection-type="false"
+              :is-fold="false"
+              @tree-icon-click="click">
       <template slot="menu" slot-scope="scope">
         <i-icon type="speedometer">{{scope.row.menu}}</i-icon>
         <Tag color="blue" v-if="scope.row.type==='menu'">菜单</Tag>
@@ -29,6 +31,7 @@
 </template>
 
 <script>
+
   export default {
     name: 'TyTreeTable',
     data() {
@@ -40,7 +43,7 @@
             url:'/system/role',
             type:'menu',
             visible:1,
-            acess:'system:role:view',
+            access:'system:role:view',
             children:[
               {
                 menu:'机构管理',
@@ -48,7 +51,7 @@
                 url:'/system/role',
                 type:'button',
                 visible:0,
-                acess:'system:role:view',
+                access:'system:role:view',
                 children:[
                   {
                     menu:'机构管理',
@@ -56,7 +59,7 @@
                     url:'/system/role',
                     type:'button',
                     visible:1,
-                    acess:'system:role:view'
+                    access:'system:role:view'
                   }
                 ]
               }
@@ -105,7 +108,7 @@
           },
           {
             label: '授权标识',
-            prop: 'acess',
+            prop: 'access',
             width: '150px',
             align:'center',
             headerAlign:'center',
@@ -131,14 +134,37 @@
       },
       del(row){
         console.log('del',row);
+      },
+      click(...rest){
+        // console.log(rest);
+        let row=rest[0];
+        // row._isFold=row._isFold;
+        console.log(row._isFold)
+        row.children.push({
+          menu:'机构管理',
+          sort:1,
+          url:'/system/role',
+          type:'button',
+          visible:0,
+          access:'system:role:view'
+        })
       }
     }
   };
 </script>
 
-<style scoped lang="less">
+<style lang="less">
   .ivu-btn{
     padding:0;
+  }
+  .zk-icon:before{
+    font-family: Ionicons;
+  }
+  .zk-icon-plus-square-o:before{
+    content:"\F125"!important;
+  }
+  .zk-icon-minus-square-o:before{
+    content:"\F123"!important;
   }
 </style>
 
