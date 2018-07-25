@@ -30,10 +30,3 @@ Vue.use(ZkTable)
 ```
 :::
 
-### DEMO
-:::demo
-```html
-  <ty-test/>
-  <file>test</file>
-```
-:::
