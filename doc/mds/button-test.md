@@ -4,8 +4,8 @@
 普通按钮描述说明
 :::demo
 ```html
-<ty-button/>
-<file>button</file>
+<ty-button-test/>
+<file>button-test</file>
 ```
 :::
 
@@ -13,7 +13,7 @@
 蓝色按钮描述说明
 :::demo type属性设置为'primary'
 ```html
-<ty-button-blue/>
-<file>button-blue</file>
+<ty-button-test-blue/>
+<file>button-test-blue</file>
 ```
 :::

@@ -23,8 +23,8 @@
         "groupName": "Basic",
         "list": [
           {
-            "path": "/button",
-            "title": "button 按钮"
+            "path": "/button-test",
+            "title": "button-test 按钮"
           }
         ]
       },
