@@ -44,6 +44,7 @@ make new <component-name> <中文名> <组件分组名> <作者名>     //创建
 make new-nomd <component-name> <中文名> <组件分组名> <作者名>     //创建新组件(不生成MD,并且不在列表展示). 例如 'make new radio-button 单选按钮 Basic 谢辉'
 make dev         //开发模式
 make dist        //编译项目，生成目标文件
+make gen-search  //生成搜索数据
 ```
 
 > 如果是windows系统,并且未安装make环境,请将make替换为npm run
@@ -234,6 +235,10 @@ module.exports=module.exports.default = 'Admin API Key'
 
 
 上传自己的组件文档数据到algolia:
+```html
+make gen-search
+```
+或者
 ```html
 node build/bin/gen-indices.js
 ```
