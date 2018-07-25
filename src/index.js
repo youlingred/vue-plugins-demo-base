@@ -1,10 +1,12 @@
 /* 由'./build/bin/build-comps-index.js' 自动生成*/
 
 import HelloWorld from './components/hello-world/index.js';
+import Test from './components/test/index.js';
 import TreeTable from './components/tree-table/index.js';
 
 const components = [
   HelloWorld,
+  Test,
   TreeTable,
 ];
 
@@ -26,6 +28,7 @@ export default {
   version: '1.0.0',
   install,
   HelloWorld,
+  Test,
   TreeTable
 };
 

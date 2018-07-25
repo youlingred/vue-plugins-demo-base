@@ -41,6 +41,7 @@ tydic init vue-component-base
 make install     //安装依赖
 make install-cn  //淘宝镜像安装依赖
 make new <component-name> <中文名> <组件分组名> <作者名>     //创建新组件. 例如 'make new radio-button 单选按钮 Basic 谢辉'
+make new-nomd <component-name> <中文名> <组件分组名> <作者名>     //创建新组件(不生成MD,并且不在列表展示). 例如 'make new radio-button 单选按钮 Basic 谢辉'
 make dev         //开发模式
 make dist        //编译项目，生成目标文件
 ```

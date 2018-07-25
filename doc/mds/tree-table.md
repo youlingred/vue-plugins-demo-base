@@ -29,3 +29,11 @@ Vue.use(ZkTable)
   <file>hello-world</file>
 ```
 :::
+
+### DEMO
+:::demo
+```html
+  <ty-test/>
+  <file>test</file>
+```
+:::

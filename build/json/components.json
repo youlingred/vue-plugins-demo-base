@@ -1,4 +1,5 @@
 {
   "hello-world": "./components/hello-world/index.js",
+  "test": "./components/test/index.js",
   "tree-table": "./components/tree-table/index.js"
 }

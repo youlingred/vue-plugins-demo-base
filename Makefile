@@ -13,6 +13,9 @@ dev:
 # 创建组件
 new:
 	npm run new $(filter-out $@,$(MAKECMDGOALS))
+# 创建组件
+new-nomd:
+	npm run new-nomd $(filter-out $@,$(MAKECMDGOALS))
 # 生成json文件
 json:
 	npm run json

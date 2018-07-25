@@ -62,26 +62,12 @@ const Files=[
     })
   },
   {
-    filename:'package.json',
-    content:render(tplPackage,{
-      componentname:componentname,
-      ComponentName:ComponentName,
-      chineseName:chineseName,
-      groupName:groupName,
-      author:author
-    })
-  },
-  {
     filename:'src/main.vue',
     content:render(tplMain,{
       ComponentName:ComponentName,
       componentname:componentname
     })
-  },
-  {
-    filename: `../../../doc/mds/${componentname}.md`,
-    content: `## ${ComponentName} ${chineseName}\n:::demo\n\`\`\`html\n<ty-${componentname}/>\n<file>${componentname}</file>\n\`\`\`\n:::`
-  },
+  }
 ];
 //FIXME 生成文件
 Files.forEach(file => {
