@@ -3,6 +3,7 @@
  */
 const fs=require('fs');
 const dir=require('../utils/dir');
+const webpack=require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 var slugify = require('transliteration').slugify;
 const merge = require('webpack-merge');
@@ -35,7 +36,7 @@ module.exports = merge(webpackBaseConfig, {
   },
   // 输出
   output: {
-    path: dir.rootof('doc/dist'),
+    path: dir.rootof('dist'),
     publicPath: '',
     filename: '[name].js',
     chunkFilename: '[name].chunk.js'
