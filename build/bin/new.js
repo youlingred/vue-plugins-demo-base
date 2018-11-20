@@ -27,6 +27,7 @@ const path = require('path');
 const dir=require('../utils/dir')
 const fileSave = require('file-save');
 const render = require('json-templater/string');
+//转换为大写驼峰
 const uppercamelcase = require('uppercamelcase');
 //FIXME 定义名称常量
 const componentname = process.argv[2];
