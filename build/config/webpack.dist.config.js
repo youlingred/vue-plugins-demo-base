@@ -1,6 +1,7 @@
 /**
  * 生产配置
  */
+const webpack=require('webpack');
 const fs=require('fs');
 const dir=require('../utils/dir');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -104,7 +105,7 @@ module.exports = merge(webpackBaseConfig, {
     // new webpack.optimize.CommonsChunkPlugin({ name: 'vendors', filename: 'vendor.bundle.js' }),
     new HtmlWebpackPlugin({
       inject: true,
-      filename: dir.rootof('dist/index.html'),
+      filename: dir.rootof('doc/dist/index.html'),
       template: dir.rootof('doc/index.html')
     }),
     new FriendlyErrorsPlugin(),

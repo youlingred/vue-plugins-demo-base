@@ -222,9 +222,9 @@
         if (/changelog/g.test(location.href)) return;
         const anchors = document.querySelectorAll('h2 a,h3 a');
         const basePath = location.href.split('#').splice(0, 2).join('#');
+
         [].slice.call(anchors).forEach(a => {
           const href = a.getAttribute('href');
-          console.log('a.href:',basePath,href);
           a.href = basePath + href;
         });
       },

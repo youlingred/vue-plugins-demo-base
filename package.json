@@ -10,15 +10,25 @@
     "dist"
   ],
   "scripts": {
-    "dev": "npm run json&&cross-env NODE_ENV=development webpack-dev-server --open --hot --config ./build/config/webpack.dev.config.js",
-    "dist": "rimraf ./dist && npm run json && cross-env NODE_ENV=production webpack --config ./build/config/webpack.dist.config.js --progress --hide-modules",
     "new": "node build/bin/new.js",
-    "new-nomd": "node build/bin/new-nomd.js",
-    "gen-search": "node build/bin/gen-indices.js",
     "json": "node build/bin/build-json.js&&npm run index",
     "index": "node build/bin/build-comps-index.js",
     "pages": "node build/bin/build-doc-pages.js",
-    "page-tpl-watch": "node build/bin/template-watch.js"
+    "page-tpl-watch": "node build/bin/template-watch.js",
+    "dev": "npm run json&&cross-env NODE_ENV=development webpack-dev-server --open --hot --config ./build/config/webpack.dev.config.js",
+    "build": "rimraf ./dist && npm run json && cross-env NODE_ENV=production webpack --config ./build/config/webpack.dist.config.js --progress --hide-modules",
+    "dist": "npm run clean && npm run json && npm run dist:cmd && npm run dist:umd && npm run dist:theme",
+    "dist:cmd": "cross-env NODE_ENV=production webpack --config ./build/config/webpack.dist.cmd.config.js --progress --hide-modules",
+    "dist:umd": "cross-env NODE_ENV=production webpack --config ./build/config/webpack.dist.umd.config.js --progress --hide-modules",
+    "dist:all":"npm run clean && lerna run dist:component",
+    "pub": "npm run dist && npm publish",
+    "pub:all": "npm run dist:all && lerna publish --skip-git",
+    "clean": "rimraf dist && rimraf src/components/*/dist && npm run clean:theme",
+    "theme": "node build/bin/theme.js",
+    "dist:theme": "lerna run dist:theme",
+    "pub:theme": "npm run dist:all && lerna publish --skip-git",
+    "clean:theme": "rimraf themes/*/dist && lerna clean --yes",
+    "gen-search": "node build/bin/gen-indices.js"
   },
   "dependencies": {
     "vue": "^2.5.11"
