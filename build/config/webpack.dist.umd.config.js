@@ -9,7 +9,7 @@ const webpackBaseConfig = require('./webpack.base.config.js');
 //Friendly-errors-webpack-plugin可识别某些类型的webpack错误并清理，聚合并优先考虑它们以提供更好的开发者体验。
 // http://npm.taobao.org/package/friendly-errors-webpack-plugin
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
-const libName=require(path.join(comsDirPath,file,'package.json')).name;
+const libName=require(dir.rootof('package.json')).name;
 const LibName = uppercamelcase(libName);
 
 module.exports = merge(webpackBaseConfig, {
