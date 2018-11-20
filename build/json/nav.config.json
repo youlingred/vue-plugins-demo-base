@@ -33,15 +33,6 @@
         "list": []
       },
       {
-        "groupName": "Table",
-        "list": [
-          {
-            "path": "/tree-table",
-            "title": "tree-table 树形表格"
-          }
-        ]
-      },
-      {
         "groupName": "Data",
         "list": []
       },
