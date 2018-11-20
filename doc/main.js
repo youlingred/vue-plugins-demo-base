@@ -13,13 +13,11 @@ import MainHeader from './components/header.vue';
 import SideNav from './components/side-nav';
 import FooterNav from './components/footer-nav';
 import title from './json/title.json';
-import ZkTable from 'vue-tree-grid-nh';
 
 
 Vue.use(TyIndex);
 Vue.use(Element);
 Vue.use(iView);
-Vue.use(ZkTable)
 Vue.use(VueRouter);
 Vue.component('demo-block', demoBlock);
 Vue.component('main-footer', MainFooter);
