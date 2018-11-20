@@ -35,12 +35,78 @@ tydic init <模板名称> [项目文件夹名称]
 ```html
 tydic init vue-component-base
 ```
+### 命令行
+切换到项目根目录下
+```bash
+make install     //安装依赖
+make install-cn  //淘宝镜像安装依赖
+make new <component-name> <中文名> <组件分组名> <作者名>     //创建新组件. 例如 'make new radio-button 单选按钮 Basic 谢辉'
+make new-nomd <component-name> <中文名> <组件分组名> <作者名>     //创建新组件(不生成MD,并且不在列表展示). 例如 'make new radio-button 单选按钮 Basic 谢辉'
+make dev         //开发模式
+make dist        //编译项目，生成目标文件
+make gen-search  //生成搜索数据
+```
+
+> 如果是windows系统,并且未安装make环境,请将make替换为npm run
+
 ### 配置
 
 #### 文档配置
-:::tip
-组件菜单自动生成,其他菜单需要手动配置
-:::
+
+
+##### 添加组件分组
+
+修改`doc/json/nav.config.tpl`添加分组,例如添加"View"分组
+```json
+ {
+    "name": "组件",
+    "groups": [
+      {
+        "groupName": "Basic",
+        "list": [
+        ]
+      },
+      {
+        "groupName": "View",  //插入此处
+        "list": [
+        ]
+      },
+      {
+        "groupName": "Form",
+        "list": [
+        ]
+      },
+      {
+        "groupName": "Table",
+        "list": [
+        ]
+      },
+      {
+        "groupName": "Data",
+        "list": [
+        ]
+      },
+      {
+        "groupName": "Notice",
+        "list": [
+        ]
+      },
+      {
+        "groupName": "Navigation",
+        "list": [
+        ]
+      },
+      {
+        "groupName": "Others",
+        "list": [
+        ]
+      }
+    ]
+  }
+```
+
+>组件菜单自动生成,其他菜单需要手动配置
+
 ##### 顶部菜单(一级菜单)
 添加menu  `doc/components/header.vue`
 
@@ -83,9 +149,9 @@ const generateMiscRoutes = function () {
 添加页面 `doc/pages/testHeader.vue`
 
 顶部菜单和页面添加完成.
-:::tip
-系统默认包含一些页面,除默认页面可以通过删除`doc/pages/template/*.tpl`文件删除,componet.tpl页面强烈建议保留,不要更改.
-:::
+
+>系统默认包含一些页面,除默认页面可以通过删除`doc/pages/template/*.tpl`文件删除,componet.tpl页面强烈建议保留,不要更改.
+
 
 ##### 左侧菜单(二级菜单)
 
@@ -115,11 +181,10 @@ const generateMiscRoutes = function () {
 
 二级菜单和页面添加完成.
 
-:::tip
-包含二级菜单的页面结构可以参考`doc/pages/guild.vue`
 
-:::
-###组件分类页面下的二级菜单不能更改,但可以修改`build/json/nav.config.json`
+>包含二级菜单的页面结构可以参考`doc/pages/guild.vue`
+
+###组件分类页面下的二级菜单不能更改
 
 ```json
  {
@@ -170,6 +235,10 @@ module.exports=module.exports.default = 'Admin API Key'
 
 
 上传自己的组件文档数据到algolia:
+```html
+make gen-search
+```
+或者
 ```html
 node build/bin/gen-indices.js
 ```

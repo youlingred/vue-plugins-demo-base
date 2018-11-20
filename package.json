@@ -13,6 +13,8 @@
     "dev": "npm run json&&cross-env NODE_ENV=development webpack-dev-server --open --hot --config ./build/config/webpack.dev.config.js",
     "dist": "rimraf ./dist && npm run json && cross-env NODE_ENV=production webpack --config ./build/config/webpack.dist.config.js --progress --hide-modules",
     "new": "node build/bin/new.js",
+    "new-nomd": "node build/bin/new-nomd.js",
+    "gen-search": "node build/bin/gen-indices.js",
     "json": "node build/bin/build-json.js&&npm run index",
     "index": "node build/bin/build-comps-index.js",
     "pages": "node build/bin/build-doc-pages.js",

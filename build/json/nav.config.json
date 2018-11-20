@@ -21,7 +21,12 @@
     "groups": [
       {
         "groupName": "Basic",
-        "list": []
+        "list": [
+          {
+            "path": "/button-test",
+            "title": "button-test 按钮"
+          }
+        ]
       },
       {
         "groupName": "Form",

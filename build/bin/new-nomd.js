@@ -55,20 +55,10 @@ const Files=[
       ComponentName:ComponentName
     })
   },
-  // {
-  //   filename:'config.js',
-  //   content:render(tplConfig,{
-  //     ComponentName:ComponentName
-  //   })
-  // },
   {
-    filename:'package.json',
-    content:render(tplPackage,{
-      componentname:componentname,
-      ComponentName:ComponentName,
-      chineseName:chineseName,
-      groupName:groupName,
-      author:author
+    filename:'config.js',
+    content:render(tplConfig,{
+      ComponentName:ComponentName
     })
   },
   {
@@ -77,11 +67,7 @@ const Files=[
       ComponentName:ComponentName,
       componentname:componentname
     })
-  },
-  {
-    filename: `../../../doc/mds/${componentname}.md`,
-    content: `## ${ComponentName} ${chineseName}\n:::demo\n\`\`\`html\n<ty-${componentname}/>\n<file>${componentname}</file>\n\`\`\`\n:::`
-  },
+  }
 ];
 //FIXME 生成文件
 Files.forEach(file => {
