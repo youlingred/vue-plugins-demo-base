@@ -17,10 +17,10 @@ if (!process.argv[4]) {
   console.error('[组件分组名]第三个参数必填');
   process.exit(1);
 }
-if (!process.argv[5]) {
-  console.error('[作者名]第四个参数必填');
-  process.exit(1);
-}
+// if (!process.argv[5]) {
+//   console.error('[作者名]第四个参数必填');
+//   process.exit(1);
+// }
 const fs=require('fs');
 const chalk=require('chalk');
 const path = require('path');
@@ -31,8 +31,8 @@ const uppercamelcase = require('uppercamelcase');
 //FIXME 定义名称常量
 const componentname = process.argv[2];
 const chineseName = process.argv[3];
-const groupName=process.argv[4]
-const author = process.argv[5];
+// const groupName=process.argv[4]
+const author = process.argv[4];
 
 const ComponentName = uppercamelcase(componentname);
 const PackagePath = path.resolve(__dirname, '../../src/components', componentname);
@@ -49,6 +49,16 @@ const tplConfig=fs.readFileSync(path.resolve(__dirname,'../tpl/component.config.
 const tplPackage=fs.readFileSync(path.resolve(__dirname,'../tpl/component.package.tpl'),'utf8')
 const tplMain=fs.readFileSync(path.resolve(__dirname,'../tpl/component.main.tpl'),'utf8')
 const Files=[
+  {
+    filename:'package.json',
+    content:render(tplPackage,{
+      componentname:componentname,
+      ComponentName:ComponentName,
+      chineseName:chineseName,
+      // groupName:groupName,
+      author:author
+    })
+  },
   {
     filename:'index.js',
     content:render(tplIndex,{
