@@ -1,5 +1,5 @@
 'use strict';
-const css_type='scss'
+const css_type='less'
 const chalk = require('chalk')
 /**生成组件css文件**/
 console.log('');
@@ -23,7 +23,9 @@ const themePath = dir(`themes`);
 const tplGulp = fs.readFileSync(dir('build/tpl/theme.gulp.tpl'), 'utf8');
 const tplPackage = fs.readFileSync(dir('build/tpl/theme.package.tpl'), 'utf8');
 //import代码块模板
-const IMPORT_TEMPLATE = `@import './{{name}}.${css_type}';`;
+const IMPORT_TEMPLATE = `@import './{{name}}';`;
+//样式文件夹路径
+const cssPath = `${themePath}/${themeName}/src`;
 const importCss = [];
 const indexPath = dir(`themes/${themeName}/src/index.${css_type}`);
 //跨平台行末标识符
@@ -63,6 +65,11 @@ comsDir.forEach(file => {
   if (!fs.existsSync(filePath)) {
     fileSave(filePath);
   }
+});
+//导入主题文件到index
+let cssDir = fs.readdirSync(cssPath);
+cssDir.forEach(file => {
+  let filePath = dir(`${themePath}/${themeName}/src/${file}.${css_type}`);
   importCss.push(render(IMPORT_TEMPLATE, {name: file}));
 });
 //生成index.scss
