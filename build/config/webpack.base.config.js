@@ -20,6 +20,7 @@ module.exports = {
             css: 'vue-style-loader!css-loader!sass-loader',
             scss: 'vue-style-loader!css-loader!sass-loader',
             sass:'vue-style-loader!css-loader!sass-loader',
+            less:'vue-style-loader!css-loader!less-loader',
           }
         }
       },
@@ -41,6 +42,14 @@ module.exports = {
           'style-loader',
           'css-loader',
           'sass-loader?sourceMap'
+        ]
+      },
+      {
+        test: /\.less/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'less-loader?sourceMap'
         ]
       },
       { test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/, loader: 'url-loader?limit=8192'},
