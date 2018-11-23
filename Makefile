@@ -19,6 +19,9 @@ new:
 # 创建组件
 new-nomd:
 	npm run new-nomd $(filter-out $@,$(MAKECMDGOALS))
+# 创建主题样式
+theme:
+	npm run theme $(filter-out $@,$(MAKECMDGOALS))
 # 生成搜索文件
 gen-search:
 	npm run gen-search

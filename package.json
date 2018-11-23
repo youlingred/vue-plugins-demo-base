@@ -11,6 +11,7 @@
   ],
   "scripts": {
     "new": "node build/bin/new.js",
+    "new-nomd": "node build/bin/new-nomd.js",
     "json": "node build/bin/build-json.js&&npm run index",
     "index": "node build/bin/build-comps-index.js",
     "pages": "node build/bin/build-doc-pages.js",
@@ -64,7 +65,7 @@
     "html-webpack-plugin": "^2.30.1",
     "json-templater": "^1.2.0",
     "lerna": "^2.9.0",
-    "less": "^3.8.1",
+    "less": "^2.7.3",
     "less-loader": "^4.1.0",
     "markdown-it": "^8.4.1",
     "markdown-it-anchor": "^4.0.0",
