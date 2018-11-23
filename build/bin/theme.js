@@ -67,10 +67,13 @@ comsDir.forEach(file => {
   }
 });
 //导入主题文件到index
-let cssDir = fs.readdirSync(cssPath);
+const cssDir = fs.readdirSync(cssPath);
+const cssReg = new RegExp(`.${css_type}$`);
 cssDir.forEach(file => {
-  let filePath = dir(`${themePath}/${themeName}/src/${file}.${css_type}`);
-  importCss.push(render(IMPORT_TEMPLATE, {name: file}));
+  if(file.match(cssReg)){
+    let filePath = dir(`${themePath}/${themeName}/src/${file}.${css_type}`);
+    importCss.push(render(IMPORT_TEMPLATE, {name: file}));
+  }
 });
 //生成index.scss
 fileSave(indexPath)
