@@ -16,8 +16,7 @@
     "url": ""
   },
   "keywords": [
-    "ty-vue-components-base-theme-{{themeName}}",
-    "ty-vue-components-base"
+    "{{themeName}}"
   ],
   "author": "",
   "license": "MIT",

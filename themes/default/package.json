@@ -1,22 +1,22 @@
 {
-  "name": "ty-vue-components-theme-default",
-  "version": "0.0.2",
+  "name": "ty-vue-plugins-demo-base-default",
+  "version": "2.0.11",
   "description": "组件主题",
   "main": "dist/index.css",
   "style": "dist/index.css",
+  "private": false,
   "files": [
-    "dist"
+    "dist:theme"
   ],
   "scripts": {
-    "dist:theme": "gulp build"
+    "dist": "gulp build"
   },
   "repository": {
     "type": "git",
     "url": ""
   },
   "keywords": [
-    "ty-vue-components-base-theme-default",
-    "ty-vue-components-base"
+    "ty-vue-plugins-demo-base-default"
   ],
   "author": "",
   "license": "MIT",
@@ -29,5 +29,7 @@
     "gulp-autoprefixer": "^5.0.0",
     "gulp-cssmin": "^0.2.0",
     "gulp-sass": "^3.1.0"
-  }
+  },
+  "dependencies": {}
 }
+

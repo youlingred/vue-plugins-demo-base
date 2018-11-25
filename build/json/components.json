@@ -1,6 +1,3 @@
 {
-  "button-test": "./components/button-test/index.js",
-  "button-test-blue": "./components/button-test-blue/index.js",
-  "hello-world": "./components/hello-world/index.js",
-  "tree-table": "./components/tree-table/index.js"
+  "hello-world": "./components/hello-world/index.js"
 }

@@ -33,6 +33,8 @@ const uppercamelcase = require('uppercamelcase');
 const folderName=`${process.argv[2]}`;
 const componentshortname = folderName;
 const ComponentShortName = uppercamelcase(componentshortname);
+const libName=`${packageJson.name}-${componentshortname}`;
+const LibName = uppercamelcase(libName);
 const componentname = `${globalConfig.appPrefix}${packageJson.name}-${componentshortname}`;
 const ComponentName = uppercamelcase(componentname);
 const chineseName = process.argv[3];
@@ -55,8 +57,9 @@ const Files=[
   {
     filename:'package.json',
     content:render(tplPackage,{
-      componentname:componentname,
-      ComponentName:ComponentName,
+      libName:libName,
+      keywords:libName,
+      ComponentShortName:ComponentShortName,
       chineseName:chineseName,
       // groupName:groupName,
       author:author
@@ -71,7 +74,7 @@ const Files=[
   {
     filename:'config.js',
     content:render(tplConfig,{
-      ComponentName:ComponentName
+      LibName:LibName
     })
   },
   {

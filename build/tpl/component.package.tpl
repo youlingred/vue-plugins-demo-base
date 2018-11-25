@@ -1,10 +1,10 @@
 {
-  "name": "{{componentname}}",
+  "name": "{{libName}}",
   "version": "0.0.0",
-  "description": "{{groupName}} | {{ComponentName}} | {{chineseName}} | for vue.js",
+  "description": "{{groupName}} | {{ComponentShortName}} | {{chineseName}} | for vue.js",
   "main": "./dist/index.js",
   "keywords": [
-    "vue-component-base",
+    "{{keywords}}",
     "vue",
     "component"
   ],
