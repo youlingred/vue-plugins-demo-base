@@ -7,6 +7,7 @@ import iView from 'iview';
 import 'iview/dist/styles/iview.css';
 import 'element-ui/lib/theme-chalk/index.css';
 import routes from './route.config';
+import store from './store'
 import demoBlock from './components/demo-block.vue';
 import MainFooter from './components/footer.vue';
 import MainHeader from './components/header.vue';
@@ -15,7 +16,7 @@ import FooterNav from './components/footer-nav';
 import title from './json/title.json';
 
 
-Vue.use(TyIndex);
+Vue.use(TyIndex,{store});
 Vue.use(Element);
 Vue.use(iView);
 Vue.use(VueRouter);
@@ -42,5 +43,6 @@ router.afterEach(route => {
 
 new Vue({ // eslint-disable-line
   render: h => h(entry),
-  router
+  router,
+  store
 }).$mount('#app');
