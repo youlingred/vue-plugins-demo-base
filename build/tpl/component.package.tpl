@@ -1,5 +1,5 @@
 {
-  "name": "vue-demo-{{componentname}}",
+  "name": "{{componentname}}",
   "version": "0.0.0",
   "description": "{{groupName}} | {{ComponentName}} | {{chineseName}} | for vue.js",
   "main": "./dist/index.js",

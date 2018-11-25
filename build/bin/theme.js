@@ -1,6 +1,5 @@
 'use strict';
-const css_type='less'
-const chalk = require('chalk')
+const chalk = require('chalk');
 /**生成组件css文件**/
 console.log('');
 process.on('exit', () => {
@@ -10,12 +9,16 @@ if (!process.argv[2]) {
   console.error('[主题名]必填 ');
   process.exit(1);
 }
-//新生成主题名称
-const themeName = process.argv[2];
+
 const fs = require('fs');
+const globalConfig=require('../config/global');
+const cssType=globalConfig.cssType;
+//新生成主题名称
 const fileSave = require('file-save');
 const render = require('json-templater/string');
 const dir = require('../utils/dir').rootof;
+const themeName = process.argv[2];
+const packageJson=require(dir('package.json'));
 //组件文件夹路径
 const comsPath = dir('src/components');
 //主题生成路径
@@ -27,7 +30,7 @@ const IMPORT_TEMPLATE = `@import './{{name}}';`;
 //样式文件夹路径
 const cssPath = `${themePath}/${themeName}/src`;
 const importCss = [];
-const indexPath = dir(`themes/${themeName}/src/index.${css_type}`);
+const indexPath = dir(`themes/${themeName}/src/index.${cssType}`);
 //跨平台行末标识符
 const endOfLine = require('os').EOL;
 
@@ -44,7 +47,7 @@ const endOfLine = require('os').EOL;
 let packagePath = dir(`${themePath}/${themeName}/package.json`);
 if (!fs.existsSync(packagePath)) {
   fileSave(packagePath)
-    .write(render(tplPackage, {themeName: themeName}), 'utf8')
+    .write(render(tplPackage, {themeName: `${globalConfig.appPrefix}${packageJson.name}-${themeName}`}), 'utf8')
     .end('\n');
   ;
 }
@@ -61,17 +64,17 @@ if (!fs.existsSync(gulpPath)) {
 //根据组件生成主题文件
 let comsDir = fs.readdirSync(comsPath);
 comsDir.forEach(file => {
-  let filePath = dir(`${themePath}/${themeName}/src/${file}.${css_type}`);
+  let filePath = dir(`${themePath}/${themeName}/src/${file}.${cssType}`);
   if (!fs.existsSync(filePath)) {
     fileSave(filePath);
   }
 });
 //导入主题文件到index
 const cssDir = fs.readdirSync(cssPath);
-const cssReg = new RegExp(`.${css_type}$`);
+const cssReg = new RegExp(`.${cssType}$`);
 cssDir.forEach(file => {
   if(file.match(cssReg)){
-    let filePath = dir(`${themePath}/${themeName}/src/${file}.${css_type}`);
+    let filePath = dir(`${themePath}/${themeName}/src/${file}.${cssType}`);
     importCss.push(render(IMPORT_TEMPLATE, {name: file}));
   }
 });

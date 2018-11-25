@@ -24,12 +24,13 @@ if (!process.argv[4]) {
 const fs=require('fs');
 const chalk=require('chalk');
 const path = require('path');
-const dir=require('../utils/dir')
+const dir=require('../utils/dir');
+const packageJson=require(dir.rootof('package.json'))
 const fileSave = require('file-save');
 const render = require('json-templater/string');
 const uppercamelcase = require('uppercamelcase');
 //FIXME 定义名称常量
-const componentname = process.argv[2];
+const componentname = `${packageJson.name}-${process.argv[2]}`;
 const chineseName = process.argv[3];
 // const groupName=process.argv[4]
 const author = process.argv[4];

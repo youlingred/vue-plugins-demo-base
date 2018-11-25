@@ -1,9 +1,9 @@
 <template>
-  <div class="ty-{{componentname}}"></div>
+  <div class="{{componentname}}"></div>
 </template>
 
 <script>
 export default {
-  name: 'Ty{{ComponentName}}'
+  name: '{{ComponentName}}'
 }
 </script>

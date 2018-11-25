@@ -24,19 +24,22 @@ if (!process.argv[5]) {
 const fs=require('fs');
 const chalk=require('chalk');
 const path = require('path');
-const dir=require('../utils/dir')
+const globalConfig=require('../config/global')
+const dir=require('../utils/dir');
+const packageJson=require(dir.rootof('package.json'))
 const fileSave = require('file-save');
 const render = require('json-templater/string');
 //转换为大写驼峰
 const uppercamelcase = require('uppercamelcase');
 //FIXME 定义名称常量
-const componentname = process.argv[2];
+const folderName=`${process.argv[2]}`
+const componentname = `${globalConfig.appPrefix}${packageJson.name}-${process.argv[2]}`;
 const chineseName = process.argv[3];
 const groupName=process.argv[4]
 const author = process.argv[5];
 
 const ComponentName = uppercamelcase(componentname);
-const PackagePath = path.resolve(__dirname, '../../src/components', componentname);
+const PackagePath = path.resolve(__dirname, '../../src/components', folderName);
 
 //FIXME 检查文件是否存在
 if(fs.existsSync(dir.rootof('src/components/'+componentname))){
@@ -80,7 +83,7 @@ const Files=[
     })
   },
   {
-    filename: `../../../doc/mds/${componentname}.md`,
+    filename: `../../../doc/mds/${folderName}.md`,
     content: `## ${ComponentName} ${chineseName}\n:::demo\n\`\`\`html\n<ty-${componentname}/>\n<file>${componentname}</file>\n\`\`\`\n:::`
   },
 ];
