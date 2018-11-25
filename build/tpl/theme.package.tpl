@@ -1,5 +1,5 @@
 {
-  "name": "ty-vue-components-theme-{{themeName}}",
+  "name": "{{themeName}}",
   "version": "2.0.11",
   "description": "组件主题",
   "main": "dist/index.css",
