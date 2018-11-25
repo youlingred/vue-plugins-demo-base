@@ -1,7 +1,7 @@
-import {{ComponentName}} from './src/main';
+import {{ComponentShortName}} from './src/main';
 
-{{ComponentName}}.install = function(Vue) {
-  Vue.component({{ComponentName}}.name, {{ComponentName}});
+{{ComponentShortName}}.install = function(Vue) {
+  Vue.component({{ComponentShortName}}.name, {{ComponentShortName}});
 };
 
-export default {{ComponentName}};
+export default {{ComponentShortName}};

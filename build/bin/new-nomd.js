@@ -30,12 +30,14 @@ const fileSave = require('file-save');
 const render = require('json-templater/string');
 const uppercamelcase = require('uppercamelcase');
 //FIXME 定义名称常量
-const componentname = `${packageJson.name}-${process.argv[2]}`;
+const folderName=`${process.argv[2]}`;
+const componentshortname = folderName;
+const ComponentShortName = uppercamelcase(componentshortname);
+const componentname = `${globalConfig.appPrefix}${packageJson.name}-${componentshortname}`;
+const ComponentName = uppercamelcase(componentname);
 const chineseName = process.argv[3];
 // const groupName=process.argv[4]
 const author = process.argv[4];
-
-const ComponentName = uppercamelcase(componentname);
 const PackagePath = path.resolve(__dirname, '../../src/components', componentname);
 
 //FIXME 检查文件是否存在
@@ -63,7 +65,7 @@ const Files=[
   {
     filename:'index.js',
     content:render(tplIndex,{
-      ComponentName:ComponentName
+      ComponentShortName:ComponentShortName
     })
   },
   {
