@@ -32,7 +32,9 @@ const render = require('json-templater/string');
 //转换为大写驼峰
 const uppercamelcase = require('uppercamelcase');
 //FIXME 定义名称常量
-const folderName=`${process.argv[2]}`
+const folderName=`${process.argv[2]}`;
+const componentshortname = folderName;
+const ComponentShortName = uppercamelcase(componentshortname);
 const componentname = `${globalConfig.appPrefix}${packageJson.name}-${process.argv[2]}`;
 const chineseName = process.argv[3];
 const groupName=process.argv[4]
@@ -84,7 +86,7 @@ const Files=[
   },
   {
     filename: `../../../doc/mds/${folderName}.md`,
-    content: `## ${ComponentName} ${chineseName}\n:::demo\n\`\`\`html\n<ty-${componentname}/>\n<file>${componentname}</file>\n\`\`\`\n:::`
+    content: `## ${ComponentShortName} ${chineseName}\n:::demo\n\`\`\`html\n<${componentname}/>\n<file>${componentshortname}</file>\n\`\`\`\n:::`
   },
 ];
 //FIXME 生成文件
