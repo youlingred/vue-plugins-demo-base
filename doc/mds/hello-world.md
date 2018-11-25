@@ -7,7 +7,7 @@
 :::demo 使用`type`、`plain`和`round`属性来定义 Button 的样式。
 
 ```html
-<ty-hello-world></ty-hello-world>
+<ty-vue-plugins-demo-base-hello-world/>
 <file>hello-world</file>
 ```
 :::
@@ -24,3 +24,4 @@
 | icon  | 图标类名 | string   |  —  |  —  |
 | autofocus  | 是否默认聚焦 | boolean   |  —  |  false  |
 | native-type | 原生 type 属性 | string | button / submit / reset | button |
+

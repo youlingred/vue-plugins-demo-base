@@ -32,13 +32,17 @@ const render = require('json-templater/string');
 //转换为大写驼峰
 const uppercamelcase = require('uppercamelcase');
 //FIXME 定义名称常量
-const folderName=`${process.argv[2]}`
-const componentname = `${globalConfig.appPrefix}${packageJson.name}-${process.argv[2]}`;
+const folderName=`${process.argv[2]}`;
+const componentshortname = folderName;
+const ComponentShortName = uppercamelcase(componentshortname);
+const libName=`${packageJson.name}-${componentshortname}`;
+const LibName = uppercamelcase(libName);
+const componentname = `${globalConfig.appPrefix}${packageJson.name}-${componentshortname}`;
+const ComponentName = uppercamelcase(componentname);
 const chineseName = process.argv[3];
 const groupName=process.argv[4]
 const author = process.argv[5];
 
-const ComponentName = uppercamelcase(componentname);
 const PackagePath = path.resolve(__dirname, '../../src/components', folderName);
 
 //FIXME 检查文件是否存在
@@ -56,20 +60,21 @@ const Files=[
   {
     filename:'index.js',
     content:render(tplIndex,{
-      ComponentName:ComponentName
+      ComponentShortName:ComponentShortName
     })
   },
-  // {
-  //   filename:'config.js',
-  //   content:render(tplConfig,{
-  //     ComponentName:ComponentName
-  //   })
-  // },
+  {
+    filename:'config.js',
+    content:render(tplConfig,{
+      LibName:LibName
+    })
+  },
   {
     filename:'package.json',
     content:render(tplPackage,{
-      componentname:componentname,
-      ComponentName:ComponentName,
+      libName:libName,
+      keywords:libName,
+      ComponentShortName:ComponentShortName,
       chineseName:chineseName,
       groupName:groupName,
       author:author
@@ -84,7 +89,7 @@ const Files=[
   },
   {
     filename: `../../../doc/mds/${folderName}.md`,
-    content: `## ${ComponentName} ${chineseName}\n:::demo\n\`\`\`html\n<ty-${componentname}/>\n<file>${componentname}</file>\n\`\`\`\n:::`
+    content: `## ${ComponentShortName} ${chineseName}\n:::demo\n\`\`\`html\n<${componentname}/>\n<file>${componentshortname}</file>\n\`\`\`\n:::`
   },
 ];
 //FIXME 生成文件

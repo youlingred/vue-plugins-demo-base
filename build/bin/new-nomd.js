@@ -30,12 +30,16 @@ const fileSave = require('file-save');
 const render = require('json-templater/string');
 const uppercamelcase = require('uppercamelcase');
 //FIXME 定义名称常量
-const componentname = `${packageJson.name}-${process.argv[2]}`;
+const folderName=`${process.argv[2]}`;
+const componentshortname = folderName;
+const ComponentShortName = uppercamelcase(componentshortname);
+const libName=`${packageJson.name}-${componentshortname}`;
+const LibName = uppercamelcase(libName);
+const componentname = `${globalConfig.appPrefix}${packageJson.name}-${componentshortname}`;
+const ComponentName = uppercamelcase(componentname);
 const chineseName = process.argv[3];
 // const groupName=process.argv[4]
 const author = process.argv[4];
-
-const ComponentName = uppercamelcase(componentname);
 const PackagePath = path.resolve(__dirname, '../../src/components', componentname);
 
 //FIXME 检查文件是否存在
@@ -53,8 +57,9 @@ const Files=[
   {
     filename:'package.json',
     content:render(tplPackage,{
-      componentname:componentname,
-      ComponentName:ComponentName,
+      libName:libName,
+      keywords:libName,
+      ComponentShortName:ComponentShortName,
       chineseName:chineseName,
       // groupName:groupName,
       author:author
@@ -63,13 +68,13 @@ const Files=[
   {
     filename:'index.js',
     content:render(tplIndex,{
-      ComponentName:ComponentName
+      ComponentShortName:ComponentShortName
     })
   },
   {
     filename:'config.js',
     content:render(tplConfig,{
-      ComponentName:ComponentName
+      LibName:LibName
     })
   },
   {

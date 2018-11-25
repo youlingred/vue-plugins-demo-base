@@ -8,7 +8,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'index.js',
-    library:'{{LibName}}',
+    library:'VuePluginsDemoBaseHelloWorld',
     libraryTarget: 'umd'
   },
   //模块配置
@@ -77,3 +77,4 @@ module.exports = {
     })
   ]
 };
+
