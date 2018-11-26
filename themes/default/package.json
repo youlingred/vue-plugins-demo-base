@@ -6,10 +6,10 @@
   "style": "dist/index.css",
   "private": false,
   "files": [
-    "dist:theme"
+    "dist"
   ],
   "scripts": {
-    "dist": "gulp build"
+    "dist:theme": "gulp build"
   },
   "repository": {
     "type": "git",
