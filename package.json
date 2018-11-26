@@ -29,7 +29,6 @@
     "clean": "rimraf dist && rimraf src/components/*/dist && npm run clean:theme",
     "theme": "node build/bin/theme.js",
     "dist:theme": "lerna run dist:theme",
-    "pub:theme": "npm run dist:all && lerna publish --skip-git",
     "clean:theme": "rimraf themes/*/dist && lerna clean --yes",
     "gen-search": "node build/bin/gen-indices.js"
   },

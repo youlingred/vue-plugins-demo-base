@@ -45,9 +45,6 @@ pub:
 # 发布组件
 pub-component:
 	npm run pub:component
-# 发布样式
-pub-theme:
-	npm run pub:theme
 # 各个组件单独发布
 pub-all:
 	npm run pub:all
@@ -68,5 +65,4 @@ help:
 	@echo "   \033[35mmake dist-all\033[0m\t\033[0m\t\033[0m\t---  分别编译每个组件项目"
 	@echo "   \033[35mmake pub\033[0m\t\033[0m\t\033[0m\t\033[0m\t---  发布组件加样式到 npm 上"
 	@echo "   \033[35mmake pub-component\033[0m\t\033[0m\t\033[0m\t---  发布组件到 npm 上"
-	@echo "   \033[35mmake pub-theme\033[0m\t\033[0m\t\033[0m\t---  发布样式到 npm 上"
 	@echo "   \033[35mmake pub-all\033[0m\t\033[0m\t\033[0m\t\033[0m\t---  发布各组件到 npm 上"
