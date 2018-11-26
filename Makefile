@@ -39,9 +39,12 @@ dist-all:
 
 deploy:
 	@npm run deploy
-# 发布组件
+# 发布组件+样式
 pub:
 	npm run pub
+# 发布组件
+pub-component:
+	npm run pub:component
 # 各个组件单独发布
 pub-all:
 	npm run pub:all
@@ -57,8 +60,9 @@ help:
 	@echo "   \033[35mmake new-nomd <component-name> <中文名> <作者名>\033[0m\t---  创建新组件. 例如 'make new radio-button 单选按钮 谢辉'"
 	@echo "   \033[35mmake theme <theme-name>\033[0m\t\033[0m\t---  创建主题. 例如 'make theme default'"
 	@echo "   \033[35mmake dev\033[0m\t\033[0m\t\033[0m\t\033[0m\t---  开发模式"
-	@echo "   \033[35mmake build-doc\033[0m\t\033[0m\t\033[0m\t\033[0m\t---  编译doc"
+	@echo "   \033[35mmake build-doc\033[0m\t\033[0m\t\033[0m\t---  编译doc"
 	@echo "   \033[35mmake dist\033[0m\t\033[0m\t\033[0m\t\033[0m\t---  编译项目，生成目标文件"
 	@echo "   \033[35mmake dist-all\033[0m\t\033[0m\t\033[0m\t---  分别编译每个组件项目"
-	@echo "   \033[35mmake pub\033[0m\t\033[0m\t\033[0m\t\033[0m\t---  发布到 npm 上"
+	@echo "   \033[35mmake pub\033[0m\t\033[0m\t\033[0m\t\033[0m\t---  发布组件加样式到 npm 上"
+	@echo "   \033[35mmake pub-component\033[0m\t\033[0m\t\033[0m\t---  发布组件到 npm 上"
 	@echo "   \033[35mmake pub-all\033[0m\t\033[0m\t\033[0m\t\033[0m\t---  发布各组件到 npm 上"
