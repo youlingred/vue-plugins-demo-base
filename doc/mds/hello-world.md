@@ -7,7 +7,7 @@
 :::demo 使用`type`、`plain`和`round`属性来定义 Button 的样式。
 
 ```html
-<ty-vue-plugins-demo-base-hello-world/>
+<ty-hello-world/>
 <file>hello-world</file>
 ```
 :::
