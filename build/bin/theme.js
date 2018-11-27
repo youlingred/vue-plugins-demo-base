@@ -86,5 +86,10 @@ fileSave(indexPath)
 let fontsPath = dir(`${themePath}/${themeName}/src/fonts`);
 if (!fs.existsSync(fontsPath)) {
   fs.mkdirSync(fontsPath);
-}
-;
+};
+//生成images文件夹
+let imgPath = dir(`${themePath}/${themeName}/src/images`);
+if (!fs.existsSync(imgPath)) {
+  fs.mkdirSync(imgPath);
+};
+
