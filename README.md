@@ -56,7 +56,7 @@ make gen-search  //生成搜索数据
 
 ##### 添加组件分组
 
-修改`doc/json/nav.config.tpl`添加分组,例如添加"View"分组
+修改`build/tpl/nav.config.tpl`添加分组,例如添加"View"分组
 ```json
  {
     "name": "组件",
