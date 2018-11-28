@@ -8,7 +8,7 @@ const navJsonPath=dir.rootof('build/json/nav.config.json');
 const comsDirPath=dir.rootof('src/components/');
 const comsFile = {};
 //FIXME 读取nav.config.tpl模板文件
-const tplNav=fs.readFileSync(path.resolve(__dirname,'../../doc/nav.config.tpl'),'utf8')
+const tplNav=fs.readFileSync(path.resolve(__dirname,'../tpl/nav.config.tpl'),'utf8')
 //FIXME 读取组件目录,获取文件夹列表
 let dirList=fs.readdirSync(comsDirPath);
 // console.log(dirList);
