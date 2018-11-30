@@ -23,7 +23,7 @@ module.exports = merge(webpackBaseConfig, {
     publicPath: '',
     library:LibName,
     libraryTarget: "umd",
-    filename: libName,
+    filename: `${libName}.js`,
   },
   externals:{
     vue:{
