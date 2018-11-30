@@ -3,11 +3,13 @@
   "description": "A Vue.js project",
   "version": "1.0.0",
   "author": "xiehui <30897863@qq.com>",
-  "main": "dist/index.js",
+  "main": "src/index.js",
   "license": "MIT",
   "private": false,
   "files": [
-    "dist"
+    "dist",
+    "src",
+    "themes"
   ],
   "scripts": {
     "new": "node build/bin/new.js",
