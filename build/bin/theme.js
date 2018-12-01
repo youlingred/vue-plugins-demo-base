@@ -47,7 +47,7 @@ const endOfLine = require('os').EOL;
 let packagePath = dir(`${themePath}/${themeName}/package.json`);
 if (!fs.existsSync(packagePath)) {
   fileSave(packagePath)
-    .write(render(tplPackage, {themeName: `${globalConfig.appPrefix}${packageJson.name}-${themeName}`}), 'utf8')
+    .write(render(tplPackage, {themeName: `${packageJson.name}-theme-${themeName}`}), 'utf8')
     .end('\n');
   ;
 }
