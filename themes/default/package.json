@@ -1,22 +1,22 @@
 {
-  "name": "ty-vue-plugins-demo-base-default",
+  "name": "vue-plugins-demo-base-theme-default",
   "version": "2.0.11",
   "description": "组件主题",
   "main": "dist/index.css",
   "style": "dist/index.css",
   "private": false,
   "files": [
-    "dist"
-  ],
-  "scripts": {
-    "dist:theme": "gulp build"
-  },
+     "dist"
+   ],
+   "scripts": {
+     "dist:theme": "gulp build"
+   },
   "repository": {
     "type": "git",
     "url": ""
   },
   "keywords": [
-    "ty-vue-plugins-demo-base-default"
+    "vue-plugins-demo-base-theme-default"
   ],
   "author": "",
   "license": "MIT",
