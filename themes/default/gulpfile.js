@@ -7,7 +7,7 @@ const sass = require('gulp-sass');
 const less = require('gulp-less');
 const autoprefixer = require('gulp-autoprefixer');
 const cssmin = require('gulp-cssmin');
-const distPath = path.resolve(__dirname, `../../dist/themes/${name}`);
+let distPath = path.resolve(__dirname, `./dist`);
 const globalConfig = require('../../build/config/global');
 console.log(globalConfig)
 const cssType = globalConfig.cssType;
@@ -19,6 +19,9 @@ function cssGulp(){
     return sass.sync
   }
 }
+gulp.task('changeDistPath',function(){
+  distPath = path.resolve(__dirname, `../../dist/themes/${name}`);
+});
 gulp.task('compile', function () {
   return gulp.src(`./src/*.${cssType}`)
     .pipe(cssGulp()())
@@ -39,3 +42,4 @@ gulp.task('copyfont', function () {
     .pipe(gulp.dest(`${distPath}/fonts`));
 });
 gulp.task('build', ['compile','copyimage','copyfont']);
+gulp.task('dist',['changeDistPath','compile','copyimage','copyfont']);

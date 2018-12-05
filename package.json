@@ -3,13 +3,12 @@
   "description": "{{projectDescription}}",
   "version": "{{projectVersion}}",
   "author": "{{projectAuthor}}",
-  "main": "src/index.js",
+  "main": "dist/index.js",
+  "style": "dist/themes/default/index.css",
   "license": "MIT",
   "private": false,
   "files": [
-    "dist",
-    "src",
-    "themes"
+    "dist"
   ],
   "scripts": {
     "new": "node build/bin/new.js",
@@ -20,11 +19,11 @@
     "page-tpl-watch": "node build/bin/template-watch.js",
     "dev": "npm run json&&cross-env NODE_ENV=development webpack-dev-server --open --hot --config ./build/config/webpack.dev.config.js",
     "build": "rimraf ./dist && npm run json && cross-env NODE_ENV=production webpack --config ./build/config/webpack.dist.config.js --progress --hide-modules",
-    "dist": "npm run clean && npm run json && npm run dist:cmd && npm run dist:umd && npm run dist:theme",
+    "dist": "npm run clean && npm run json && npm run dist:cmd && npm run dist:umd && lerna run dist",
     "dist:component": "npm run clean && npm run json && npm run dist:cmd && npm run dist:umd",
     "dist:cmd": "cross-env NODE_ENV=production webpack --config ./build/config/webpack.dist.cmd.config.js --progress --hide-modules",
     "dist:umd": "cross-env NODE_ENV=production webpack --config ./build/config/webpack.dist.umd.config.js --progress --hide-modules",
-    "dist:all": "npm run clean && lerna run dist:component",
+    "dist:all": "npm run clean && lerna run dist:component && lerna run dist:theme",
     "pub": "npm run dist && npm publish",
     "pub:component": "npm run dist:component && npm publish",
     "pub:all": "npm run dist:all && lerna publish --skip-git",
@@ -34,16 +33,17 @@
     "clean:theme": "rimraf themes/*/dist && lerna clean --yes",
     "gen-search": "node build/bin/gen-indices.js"
   },
-  "dependencies": {
-    "vue": "^2.5.11",
-    "vuex": "^3.0.1"
-  },
   "browserslist": [
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
   ],
+  "dependencies": {
+    "vue": "^2.5.11",
+    "vuex": "^3.0.1"
+  },
   "devDependencies": {
+    "gulp-less": "^4.0.1",
     "algoliasearch": "^3.24.11",
     "autoprefixer-loader": "^3.2.0",
     "babel-core": "^6.26.0",

@@ -1,6 +1,6 @@
 {
   "name": "{{themeName}}",
-  "version": "2.0.11",
+  "version": "0.0.0",
   "description": "组件主题",
   "main": "dist/index.css",
   "style": "dist/index.css",

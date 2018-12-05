@@ -18,7 +18,6 @@ const fileSave = require('file-save');
 const render = require('json-templater/string');
 const dir = require('../utils/dir').rootof;
 const themeName = process.argv[2];
-const packageJson=require(dir('package.json'));
 //组件文件夹路径
 const comsPath = dir('src/components');
 //主题生成路径
@@ -47,7 +46,7 @@ const endOfLine = require('os').EOL;
 let packagePath = dir(`${themePath}/${themeName}/package.json`);
 if (!fs.existsSync(packagePath)) {
   fileSave(packagePath)
-    .write(render(tplPackage, {themeName: `${packageJson.name}-theme-${themeName}`}), 'utf8')
+    .write(render(tplPackage, {themeName: `${globalConfig.packageName}-theme-${themeName}`}), 'utf8')
     .end('\n');
   ;
 }
@@ -74,8 +73,9 @@ const cssDir = fs.readdirSync(cssPath);
 const cssReg = new RegExp(`.${cssType}$`);
 cssDir.forEach(file => {
   if(file.match(cssReg)){
-    let filePath = dir(`${themePath}/${themeName}/src/${file}.${cssType}`);
-    importCss.push(render(IMPORT_TEMPLATE, {name: file}));
+    if(file!='index'){
+      importCss.push(render(IMPORT_TEMPLATE, {name: file}));
+    }
   }
 });
 //生成index.scss

@@ -4,11 +4,14 @@
 const webpack=require('webpack');
 const dir=require('../utils/dir');
 const merge = require('webpack-merge');
+const uppercamelcase = require('uppercamelcase');
 const webpackBaseConfig = require('./webpack.base.config.js');
 //Friendly-errors-webpack-plugin可识别某些类型的webpack错误并清理，聚合并优先考虑它们以提供更好的开发者体验。
 // http://npm.taobao.org/package/friendly-errors-webpack-plugin
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
-
+const globalConfig=require('./global');
+const libName=globalConfig.name;
+const LibName = uppercamelcase(libName);
 module.exports = merge(webpackBaseConfig, {
   // 入口
   entry: {
@@ -19,7 +22,7 @@ module.exports = merge(webpackBaseConfig, {
   output: {
     path: dir.rootof('dist'),
     publicPath: '',
-    library:'TyVuecoms',
+    library:`${LibName}`,
     libraryTarget: "commonjs2",
     filename: 'index.js',
     // chunkFilename: '[name].chunk.js'
