@@ -1,6 +1,6 @@
 {
   "name": "vue-plugins-demo-base-theme-default",
-  "version": "2.0.11",
+  "version": "1.0.0",
   "description": "组件主题",
   "main": "dist/index.css",
   "style": "dist/index.css",

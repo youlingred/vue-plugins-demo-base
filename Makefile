@@ -33,6 +33,10 @@ pages:
 # 打包组件
 dist:
 	npm run dist
+# 打包组件
+dist-component:
+	npm run dist:component
+
 # 打包样式
 dist-theme:
 	npm run dist:theme
@@ -65,6 +69,7 @@ help:
 	@echo "   \033[35mmake dev\033[0m\t\033[0m\t\033[0m\t\033[0m\t---  开发模式"
 	@echo "   \033[35mmake build-doc\033[0m\t\033[0m\t\033[0m\t---  编译doc"
 	@echo "   \033[35mmake dist\033[0m\t\033[0m\t\033[0m\t\033[0m\t---  编译项目，生成目标文件"
+	@echo "   \033[35mmake dist-component\033[0m\t\033[0m\t\033[0m\t---  编译组件"
 	@echo "   \033[35mmake dist-theme\033[0m\t\033[0m\t\033[0m\t---  编译主题样式"
 	@echo "   \033[35mmake dist-all\033[0m\t\033[0m\t\033[0m\t---  分别编译每个组件项目"
 	@echo "   \033[35mmake pub\033[0m\t\033[0m\t\033[0m\t\033[0m\t---  发布组件加样式到 npm 上"

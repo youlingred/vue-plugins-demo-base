@@ -1,12 +1,10 @@
 <template>
-  <div class="ty-hello-world">
-    <el-button>hello world</el-button>
-  </div>
+  <div class="ty-hello-world"></div>
 </template>
 
 <script>
 export default {
-  name: 'TyHelloWorld'
+  name: 'TyHelloWorld',
 }
 </script>
 

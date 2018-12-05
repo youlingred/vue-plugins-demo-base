@@ -7,9 +7,7 @@
   "license": "MIT",
   "private": false,
   "files": [
-    "dist",
-    "src",
-    "themes"
+    "dist"
   ],
   "scripts": {
     "new": "node build/bin/new.js",
@@ -34,16 +32,17 @@
     "clean:theme": "rimraf themes/*/dist && lerna clean --yes",
     "gen-search": "node build/bin/gen-indices.js"
   },
-  "dependencies": {
-    "vue": "^2.5.11",
-    "vuex": "^3.0.1"
-  },
   "browserslist": [
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
   ],
+  "dependencies": {
+    "vue": "^2.5.11",
+    "vuex": "^3.0.1"
+  },
   "devDependencies": {
+    "gulp-less": "^4.0.1",
     "algoliasearch": "^3.24.11",
     "autoprefixer-loader": "^3.2.0",
     "babel-core": "^6.26.0",

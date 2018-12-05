@@ -1,7 +1,7 @@
 {
   "name": "vue-plugins-demo-base-hello-world",
   "version": "0.0.0",
-  "description": "Basic | HelloWorld | 你好 | for vue.js",
+  "description": "Basic | HelloWorld | 操作按钮 | for vue.js",
   "main": "./dist/index.js",
   "keywords": [
     "vue-plugins-demo-base-hello-world",
@@ -9,10 +9,10 @@
     "component"
   ],
   "scripts": {
-    "dist:component":"cross-env NODE_ENV=production webpack --config ./config.js --progress --hide-modules"
-  },
+      "dist:component":"cross-env NODE_ENV=production webpack --config ./config.js --progress --hide-modules"
+    },
   "repository": "https://gitlab.tydicdev.com/DS/fe-base/vue-components-base/master/src/components/${componentname}",
-  "author": "Form",
+  "author": "谢辉",
   "license": "MIT",
   "dependencies": {}
 }

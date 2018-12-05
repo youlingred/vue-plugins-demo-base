@@ -33,26 +33,49 @@ tydic init <模板名称> [项目文件夹名称]
 ```
 #### 例如构建组件开发项目:
 ```html
-tydic init vue-component-base
+tydic init vue-plugins-demo-base
 ```
 ### 命令行
 切换到项目根目录下
 ```bash
-make install     //安装依赖
-make install-cn  //淘宝镜像安装依赖
-make new <component-name> <中文名> <组件分组名> <作者名>     //创建新组件. 例如 'make new radio-button 单选按钮 Basic 谢辉'
-make new-nomd <component-name> <中文名> <组件分组名> <作者名>     //创建新组件(不生成MD,并且不在列表展示). 例如 'make new radio-button 单选按钮 Basic 谢辉'
-make dev         //开发模式
-make dist        //编译项目，生成目标文件
-make gen-search  //生成搜索数据
+make 命令使用说明
+   make install                         ---  安装依赖
+   make install-cn                      ---  淘宝镜像安装依赖
+   make new <component-name> <中文名> <组件分组名> <作者名>     ---  创建新组件. 例如 'make new radio-button 单选按钮 Basic 谢辉'
+   make new-nomd <component-name> <中文名> <作者名>     ---  创建新组件. 例如 'make new radio-button 单选按钮 谢辉'
+   make theme <theme-name>              ---  创建主题. 例如 'make theme default'
+   make dev                             ---  开发模式
+   make build-doc                       ---  编译doc
+   make dist                            ---  编译项目，生成目标文件
+   make dist-component                  ---  编译组件
+   make dist-theme                      ---  编译主题样式
+   make dist-all                        ---  分别编译每个组件项目
+   make pub                             ---  发布组件加样式到 npm 上
+   make pub-component                   ---  发布组件到 npm 上
+   make pub-all                         ---  发布各组件到 npm 上
 ```
 
-> 如果是windows系统,并且未安装make环境,请将make替换为npm run
+> 如果是windows系统,并且未安装make环境,将make替换为npm run
 
 ### 配置
 
-#### 文档配置
+### 组件开发配置
 
+#### 全局配置
+
+```
+./package.json
+
+name:'projectName'        插件发布名称,可使用scope包,例如 "@scope/projectName"
+
+build/config/global.js
+
+appPrefix:                组件标签前缀
+
+cssType: 'less'           组件使用的CSS预处理语言
+
+```
+#### 文档配置
 
 ##### 添加组件分组
 

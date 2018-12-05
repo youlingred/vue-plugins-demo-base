@@ -7,12 +7,13 @@ const components = [
 ];
 
 const install = function(Vue, opts = {}) {
+  //当有全局组件需要注册到Vue.prototype或者window时,或者需要执行的语句,可以在component.index.tpl添加,例如
+  //Vue.prototype.$alert = MessageBox.alert;
 
   components.map(component => {
     Vue.component(component.name, component);
   });
-  //当有全局组件需要注册到Vue.prototype时可以在这里添加
-  //Vue.prototype.$alert = MessageBox.alert;
+
 };
 
 /* html通过script标签引入时自动注册全局vue*/
@@ -21,7 +22,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 };
 
 export default {
-  version: '1.0.0',
+  version: '1.0.3',
   install,
   HelloWorld
 };

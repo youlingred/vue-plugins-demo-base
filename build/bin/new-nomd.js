@@ -24,8 +24,8 @@ if (!process.argv[4]) {
 const fs=require('fs');
 const chalk=require('chalk');
 const path = require('path');
+const globalConfig=require('../config/global')
 const dir=require('../utils/dir');
-const packageJson=require(dir.rootof('package.json'))
 const fileSave = require('file-save');
 const render = require('json-templater/string');
 const uppercamelcase = require('uppercamelcase');
@@ -33,7 +33,8 @@ const uppercamelcase = require('uppercamelcase');
 const folderName=`${process.argv[2]}`;
 const componentshortname = folderName;
 const ComponentShortName = uppercamelcase(componentshortname);
-const libName=`${packageJson.name}-${componentshortname}`;
+const packageName=`${globalConfig.packageName}-${componentshortname}`;
+const libName=`${globalConfig.packageName}-${componentshortname}`;
 const LibName = uppercamelcase(libName);
 const componentname = `${globalConfig.appPrefix}${componentshortname}`;
 const ComponentName = uppercamelcase(componentname);
@@ -57,7 +58,7 @@ const Files=[
   {
     filename:'package.json',
     content:render(tplPackage,{
-      libName:libName,
+      packageName,
       keywords:libName,
       ComponentShortName:ComponentShortName,
       chineseName:chineseName,

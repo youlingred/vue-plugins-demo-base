@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import TyIndex from '../src/index';
-import '../themes/default/src/index.less';
+// import '../themes/default/src/index.less';
 import entry from './App';
 import VueRouter from 'vue-router';
 import Element from 'element-ui';
