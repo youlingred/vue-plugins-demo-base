@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "new": "node build/bin/new.js",
-    "new-nomd": "node build/bin/new-nomd.js",
+    "new:nomd": "node build/bin/new-nomd.js",
     "json": "node build/bin/build-json.js&&npm run index",
     "index": "node build/bin/build-comps-index.js",
     "pages": "node build/bin/build-doc-pages.js",

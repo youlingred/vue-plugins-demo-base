@@ -33,17 +33,17 @@ const uppercamelcase = require('uppercamelcase');
 //FIXME 定义名称常量
 const folderName=`${process.argv[2]}`;
 const componentshortname = folderName;
-let ComponentShortName = uppercamelcase(componentshortname);
-let packageName=`${globalConfig.packageName}-${componentshortname}`;
+const ComponentShortName = uppercamelcase(componentshortname);
+const packageName=`${globalConfig.packageName}-${componentshortname}`;
 const libName=`${globalConfig.name}-${componentshortname}`;
 const LibName = uppercamelcase(libName);
-let componentname = `${globalConfig.appPrefix}${componentshortname}`;
-let ComponentName = uppercamelcase(componentname);
+const componentname = `${globalConfig.appPrefix}${componentshortname}`;
+const ComponentName = uppercamelcase(componentname);
 const chineseName = process.argv[3];
 const groupName=process.argv[4]
 const author = process.argv[5];
 
-let PackagePath = path.resolve(__dirname, '../../src/components', folderName);
+const PackagePath = path.resolve(__dirname, '../../src/components', folderName);
 
 //FIXME 检查文件是否存在
 if(fs.existsSync(dir.rootof('src/components/'+componentname))){
@@ -56,9 +56,7 @@ const tplIndex=fs.readFileSync(path.resolve(__dirname,'../tpl/component.index.tp
 const tplConfig=fs.readFileSync(path.resolve(__dirname,'../tpl/component.config.tpl'),'utf8');
 const tplPackage=fs.readFileSync(path.resolve(__dirname,'../tpl/component.package.tpl'),'utf8')
 const tplMain=fs.readFileSync(path.resolve(__dirname,'../tpl/component.main.tpl'),'utf8')
-/*******生成组件*********/
-//FIXME 生成组件文件列表
-let Files=[
+const Files=[
   {
     filename:'index.js',
     content:render(tplIndex,{
@@ -78,58 +76,6 @@ let Files=[
       keywords:libName,
       ComponentShortName:ComponentShortName,
       chineseName:chineseName,
-      groupName:'Hide',
-      author:author
-    })
-  },
-  {
-    filename:'src/main.vue',
-    content:render(tplMain,{
-      ComponentName:ComponentName,
-      componentname:componentname
-    })
-  },
-  // {
-  //   filename: `../../../doc/mds/${folderName}.md`,
-  //   content: `## ${ComponentShortName} ${chineseName}\n:::demo\n\`\`\`html\n<${componentname}/>\n<file>${componentshortname}</file>\n\`\`\`\n:::`
-  // },
-];
-//FIXME 生成组件文件
-Files.forEach(file => {
-  const filePath=path.join(PackagePath, file.filename)
-  fileSave(filePath)
-    .write(file.content, 'utf8')
-    .end('\n');
-  console.log(chalk.green(`创建文件:${filePath}`));
-});
-/*******生成demo*********/
-ComponentShortName=ComponentShortName+'Demo'
-componentname=componentname+'-demo';
-ComponentName=ComponentName+'Demo';
-ComponentName=ComponentName+'Demo';
-PackagePath=PackagePath+'-demo';
-packageName=packageName+'-demo'
-//FIXME 生成demo文件列表
-Files=[
-  {
-    filename:'index.js',
-    content:render(tplIndex,{
-      ComponentShortName:ComponentShortName
-    })
-  },
-  // {
-  //   filename:'config.js',
-  //   content:render(tplConfig,{
-  //     LibName:LibName
-  //   })
-  // },
-  {
-    filename:'package.json',
-    content:render(tplPackage,{
-      packageName,
-      keywords:libName,
-      ComponentShortName:ComponentShortName,
-      chineseName:chineseName,
       groupName:groupName,
       author:author
     })
@@ -142,11 +88,11 @@ Files=[
     })
   },
   {
-    filename: `../../../doc/mds/${folderName}-demo.md`,
+    filename: `../../../doc/mds/${folderName}.md`,
     content: `## ${ComponentShortName} ${chineseName}\n:::demo\n\`\`\`html\n<${componentname}/>\n<file>${componentshortname}</file>\n\`\`\`\n:::`
   },
 ];
-//FIXME 生成demo文件
+//FIXME 生成文件
 Files.forEach(file => {
   const filePath=path.join(PackagePath, file.filename)
   fileSave(filePath)

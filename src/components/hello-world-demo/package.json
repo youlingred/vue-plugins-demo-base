@@ -1,7 +1,7 @@
 {
-  "name": "vue-plugins-demo-base-test-hello-world",
+  "name": "vue-plugins-demo-base-test-hello-world-demo",
   "version": "0.0.0",
-  "description": "Hide | HelloWorld | 操作按钮 | for vue.js",
+  "description": "Basic | HelloWorldDemo | 操作按钮 | for vue.js",
   "main": "./dist/index.js",
   "keywords": [
     "vue-plugins-demo-base-test-hello-world",

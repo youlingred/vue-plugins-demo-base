@@ -1,3 +1,4 @@
 {
-  "hello-world": "./components/hello-world/index.js"
+  "hello-world": "./components/hello-world/index.js",
+  "hello-world-demo": "./components/hello-world-demo/index.js"
 }

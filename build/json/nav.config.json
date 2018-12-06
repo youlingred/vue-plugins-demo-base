@@ -23,8 +23,8 @@
         "groupName": "Basic",
         "list": [
           {
-            "path": "/hello-world",
-            "title": "hello-world 操作按钮"
+            "path": "/hello-world-demo",
+            "title": "hello-world-demo 操作按钮"
           }
         ]
       },
