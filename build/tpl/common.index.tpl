@@ -2,6 +2,10 @@
 
 {{include}}
 
+ //工具函数从这里引入,和声明
+ //import VcUtils from './libs/utils'
+ //window.VcUtils = VcUtils
+
 const components = [
 {{install}},
 ];
