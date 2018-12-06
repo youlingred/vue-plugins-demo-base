@@ -13,12 +13,15 @@ dev:
 # 编译doc
 build-doc:
 	npm run build
-# 创建组件
+# 创建组件和demo文件
 new:
 	npm run new $(filter-out $@,$(MAKECMDGOALS))
 # 创建组件
+new-component:
+	npm run new:component $(filter-out $@,$(MAKECMDGOALS))
+# 创建组件
 new-nomd:
-	npm run new-nomd $(filter-out $@,$(MAKECMDGOALS))
+	npm run new:nomd $(filter-out $@,$(MAKECMDGOALS))
 # 创建主题样式
 theme:
 	npm run theme $(filter-out $@,$(MAKECMDGOALS))
@@ -63,7 +66,8 @@ help:
 	@echo "   \033[35mmake\033[0m \033[1m命令使用说明\033[0m"
 	@echo "   \033[35mmake install\033[0m\t\033[0m\t\033[0m\t\033[0m\t---  安装依赖"
 	@echo "   \033[35mmake install-cn\033[0m\t\033[0m\t\033[0m\t---  淘宝镜像安装依赖"
-	@echo "   \033[35mmake new <component-name> <中文名> <组件分组名> <作者名>\033[0m\t---  创建新组件. 例如 'make new radio-button 单选按钮 Basic 谢辉'"
+	@echo "   \033[35mmake new <component-name> <中文名> <组件分组名> <作者名>\033[0m\t---  创建新组件和demo文件. 例如 'make new radio-button 单选按钮 Basic 谢辉'"
+	@echo "   \033[35mmake new-component <component-name> <中文名> <组件分组名> <作者名>\033[0m\t---  创建新组件. 例如 'make new radio-button 单选按钮 Basic 谢辉'"
 	@echo "   \033[35mmake new-nomd <component-name> <中文名> <作者名>\033[0m\t---  创建新组件. 例如 'make new radio-button 单选按钮 谢辉'"
 	@echo "   \033[35mmake theme <theme-name>\033[0m\t\033[0m\t---  创建主题. 例如 'make theme default'"
 	@echo "   \033[35mmake dev\033[0m\t\033[0m\t\033[0m\t\033[0m\t---  开发模式"
